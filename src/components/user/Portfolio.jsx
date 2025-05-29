@@ -27,11 +27,13 @@ const ProjectComponent = () => {
   // Separate states for each project details visibility
   const [showDetailsProject1, setShowDetailsProject1] = useState(false);
   const [showDetailsProject2, setShowDetailsProject2] = useState(false);
-
+  const [showDetailsProject3, setShowDetailsProject3] = useState(false);
   // Combined close handler to reset all details views
   const closeAllDetails = () => {
     setShowDetailsProject1(false);
     setShowDetailsProject2(false);
+       setShowDetailsProject3(false);
+ 
   };
 
   // Open specific project detail and hide others
@@ -42,6 +44,10 @@ const ProjectComponent = () => {
     } else if (projectNumber === 2) {
       setShowDetailsProject2(true);
       setShowDetailsProject1(false);
+    }else if (projectNumber === 3) {
+      setShowDetailsProject3(true);
+      setShowDetailsProject1(false);
+      setShowDetailsProject2(false);
     }
   };
 
@@ -225,7 +231,110 @@ const ProjectComponent = () => {
     </li>
   </ul>
 
-  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Impact</h3>
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6 font-bold">Impact</h3>
+  <ul className="list-inside list-[circle] space-y-1 ml-5">
+    <li>Update student data, manage users, and oversee platform operations.</li>
+    <li>Approve or reject leave requests.</li>
+    <li>View attendance and grading data filtered by date range and student ID.</li>
+    <li>Update own profile information including name, email, and password.</li>
+  </ul>
+
+  <div className="mt-4">
+    <span className="text-sm font-semibold text-black font-bold">Technologies used:</span>
+    <div className="flex flex-wrap gap-2 mt-2">
+      {["React.js", "Redux", "Postman", "HTML5", "CSS3", "REST API", "Git"].map((tech) => (
+        <span
+          key={tech}
+          className="flex-1 px-2 py-1 rounded text-xs sm:text-sm text-white bg-purple-600 text-center whitespace-nowrap"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
+
+            <BackButton onClick={closeAllDetails} />
+          </>
+        )}
+      </div>
+  
+  
+        <div className="bg-white py-10 px-5 rounded-xl shadow-lg max-w-5xl mx-auto my-10 border border-gray-200 relative">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-black">
+          Academic adfds fdsaf Management Portal
+        </h2>
+
+        {!showDetailsProject3 ? (
+          <>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+              loop
+              onClick={() => openProjectDetails(3)}
+              className="rounded-xl overflow-hidden mb-3 cursor-pointer relative max-h-[300px] sm:max-h-[200px] md:max-h-[300px] lg:max-h-[400px]"
+            >
+              {images2.map((src, idx) => (
+                <SwiperSlide key={idx} className="relative">
+                  <img
+                    src={src}
+                    alt={`Slide ${idx + 1}`}
+                    className="w-full h-full object-cover rounded-xl"
+                    loading="lazy"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="text-purple-700 rounded-md flex flex-col sm:fl  ex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base ">
+              <p className="text-center sm:text-left mt-3">
+                <strong>React.js</strong> | <strong>Laravel</strong> | <strong>MySQL</strong> | <strong>RESTful API</strong> | <strong>Deployment</strong>
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="text-gray-800 space-y-6 relative px-2 sm:px-6 lg:px-10 text-xs sm:text-sm md:text-base">
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Overview:</h3>
+  <p className="leading-relaxed">
+   afasfa  Developed a secure, role-based Academic Management System using React.js, Laravel, and MySQL with Laravel Sanctum for authentication. The system integrates RESTful APIs for efficient data exchange and scalability.
+  </p>
+
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">fasf Key Features:</h3>
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Authentication & Security:</h3>
+  <ul className="list-inside list-[circle] space-y-1 ml-5">
+    <li>Implemented JWT-based authentication for secure user sessions.</li>
+    <li>Applied input validation, form sanitization, and prepared statements to prevent SQL injection and XSS attacks.</li>
+    <li>Enforced role-based access control (RBAC) to restrict unauthorized access.</li>
+  </ul>
+
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6"> fdasfa Dual Dashboard System:</h3>
+  <ul className="list-inside list-disc ml-5 space-y-2">
+    <li>
+      <span className="font-semibold">Student Dashboard:</span>
+      <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+        <li>Attendance Management: Mark and track attendance.</li>
+        <li>Leave Requests: Submit and monitor approval status.</li>
+        <li>Profile Management: Update personal details.</li>
+        <li>Notifications: Receive important updates.</li>
+      </ul>
+    </li>
+    <li>
+      <span className="font-semibold">Admin Dashboard:</span>
+      <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+        <li>User & Attendance Management: Monitor and update student records.</li>
+        <li>Leave Handling: Approve or reject leave requests.</li>
+        <li>Role-Based Access Control (RBAC): Securely manage user roles.</li>
+        <li>Performance Reports: Generate attendance-based grading reports.</li>
+        <li>Profile Management: Update profile picture and personal details.</li>
+        <li>Data Filtering: View attendance and grading data filtered by date range and student ID.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6 font-bold">Impact</h3>
   <ul className="list-inside list-[circle] space-y-1 ml-5">
     <li>Update student data, manage users, and oversee platform operations.</li>
     <li>Approve or reject leave requests.</li>
