@@ -93,7 +93,7 @@ const FreelanceSection = () => {
       </header>
 
       {/* Services */}
-      <section className="max-w-7xl mx-auto mb-16 sm:mb-20 px-4 sm:px-0 shadow-xl rounded-3xl bg-white">
+      <section className="max-w-7xl mx-auto mb-16 sm:mb-20 p-4  psm:px-0 shadow-xl rounded-3xl bg-white">
         {/* Subdiv for header */}
         <div className="p-6 sm:p-8 border-gray-200">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center">
@@ -105,9 +105,9 @@ const FreelanceSection = () => {
         </div>
 
         {/* Services list */}
-        <section className="flex flex-col gap-8 sm:gap-10 md:gap-12 p-6 sm:p-8">
+        <section className="flex flex-col gap-8 sm:gap-10 md:gap-8 sm:p-8">
           {/* Web & Software Development */}
-          <article className="rounded-3xl p-5 sm:p-6 md:p-8   transition-shadow duration-300 bg-white">
+          <article className="rounded-3xl  md:p-8   transition-shadow duration-300 bg-white">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
               <FaLaptopCode className="text-purple-700 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex-shrink-0" />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Web & Software Development</h2>
@@ -125,7 +125,7 @@ const FreelanceSection = () => {
           </article>
 
           {/* Cybersecurity Services */}
-          <article className="rounded-3xl p-5 sm:p-6 md:p-8  transition-shadow duration-300 bg-white">
+          <article className="rounded-3xl  md:p-8  transition-shadow duration-300 bg-white">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
               <FaShieldAlt className="text-purple-700 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex-shrink-0" />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Cybersecurity Services</h2>
@@ -143,7 +143,7 @@ const FreelanceSection = () => {
           </article>
 
           {/* Website Security Coverage */}
-          <article className="rounded-3xl p-5 sm:p-6 md:p-8  transition-shadow duration-300 bg-white">
+          <article className="rounded-3xl md:p-8  transition-shadow duration-300 bg-white">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
               <FaGlobe className="text-purple-700 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex-shrink-0" />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Website Security Coverage</h2>

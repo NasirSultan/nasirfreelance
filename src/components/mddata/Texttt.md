@@ -33,7 +33,8 @@ console.log("Hello", "World"); // Method with multiple arguments
 
 ### 3. Built-in vs Custom Methods
 
- Built-in Methods: Provided by the language, such as `JSON.stringify() and Array.map()`.
+ Built-in Methods: Provided by the language, such as `JSON.stringify() and Array.map()`
+
  Custom Methods: Defined by developers inside objects or classes.
 
 ---
