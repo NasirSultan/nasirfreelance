@@ -51,7 +51,7 @@ const ProjectComponent = () => {
     "https://media.gettyimages.com/id/1475870499/photo/education-high-five-and-teacher-with-children-in-classroom-for-learning-support-and.jpg?s=612x612&w=gi&k=20&c=RnZRKGNE0ai_1qR2M8FYlSQfrr2ea1e98uP_14TE2Pc=",
     "https://media.gettyimages.com/id/1475870499/photo/education-high-five-and-teacher-with-children-in-classroom-for-learning-support-and.jpg?s=612x612&w=gi&k=20&c=RnZRKGNE0ai_1qR2M8FYlSQfrr2ea1e98uP_14TE2Pc="
   ];
-const images2 = [Screenshot1, Screenshot2, Screenshot3];
+  const images2 = [Screenshot1, Screenshot2, Screenshot3];
   return (
     <>
       {/* Project 1 */}
@@ -179,70 +179,75 @@ const images2 = [Screenshot1, Screenshot2, Screenshot3];
               ))}
             </Swiper>
 
-            <div className="text-purple-700 rounded-md flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base">
-              <p className="text-center sm:text-left">
-                <strong>Project Duration:</strong> 7 Days
-              </p>
-              <p className="text-center sm:text-left">
-                <strong>Tech Stack:</strong> Laravel, MySQL, React.js
+            <div className="text-purple-700 rounded-md flex flex-col sm:fl  ex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base ">
+              <p className="text-center sm:text-left mt-3">
+                <strong>React.js</strong> | <strong>Laravel</strong> | <strong>MySQL</strong> | <strong>RESTful API</strong> | <strong>Deployment</strong>
               </p>
             </div>
           </>
         ) : (
           <>
-            <div className="text-gray-800 space-y-6 relative px-2 sm:px-6 lg:px-10">
-              <h3 className="text-xl font-semibold mt-4 sm:mt-6">Overview:</h3>
-              <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                Built with Laravel, MySQL, and React.js | Secure Role-Based Academic Management System
-              </p>
-              <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                Developed a role-based academic management platform with separate Student and Admin dashboards using React.js (frontend), Laravel (backend), and MySQL (database).
-              </p>
+            <div className="text-gray-800 space-y-6 relative px-2 sm:px-6 lg:px-10 text-xs sm:text-sm md:text-base">
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Overview:</h3>
+  <p className="leading-relaxed">
+    Developed a secure, role-based Academic Management System using React.js, Laravel, and MySQL with Laravel Sanctum for authentication. The system integrates RESTful APIs for efficient data exchange and scalability.
+  </p>
 
-              <h3 className="text-xl font-semibold mt-4 sm:mt-6">Authentication & Security:</h3>
-              <ul className="list-inside list-[circle] space-y-1 ml-5 text-xs sm:text-sm md:text-base"
->
-                <li>Implemented JWT-based authentication for secure user sessions.</li>
-                <li>Applied input validation, form sanitization, and prepared statements to prevent SQL injection and XSS attacks.</li>
-                <li>Enforced role-based access control (RBAC) to restrict unauthorized access.</li>
-              </ul>
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Key Features:</h3>
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Authentication & Security:</h3>
+  <ul className="list-inside list-[circle] space-y-1 ml-5">
+    <li>Implemented JWT-based authentication for secure user sessions.</li>
+    <li>Applied input validation, form sanitization, and prepared statements to prevent SQL injection and XSS attacks.</li>
+    <li>Enforced role-based access control (RBAC) to restrict unauthorized access.</li>
+  </ul>
 
-              <h3 className="text-xl font-semibold mt-4 sm:mt-6">Student Dashboard Features:</h3>
-              <ul className="list-inside list-[circle] space-y-1 ml-5 text-xs sm:text-sm md:text-base"
->
-                <li>Ability to mark attendance once per day.</li>
-                <li>Submit leave requests and track leave status in real time.</li>
-              </ul>
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Dual Dashboard System:</h3>
+  <ul className="list-inside list-disc ml-5 space-y-2">
+    <li>
+      <span className="font-semibold">Student Dashboard:</span>
+      <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+        <li>Attendance Management: Mark and track attendance.</li>
+        <li>Leave Requests: Submit and monitor approval status.</li>
+        <li>Profile Management: Update personal details.</li>
+        <li>Notifications: Receive important updates.</li>
+      </ul>
+    </li>
+    <li>
+      <span className="font-semibold">Admin Dashboard:</span>
+      <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+        <li>User & Attendance Management: Monitor and update student records.</li>
+        <li>Leave Handling: Approve or reject leave requests.</li>
+        <li>Role-Based Access Control (RBAC): Securely manage user roles.</li>
+        <li>Performance Reports: Generate attendance-based grading reports.</li>
+        <li>Profile Management: Update profile picture and personal details.</li>
+        <li>Data Filtering: View attendance and grading data filtered by date range and student ID.</li>
+      </ul>
+    </li>
+  </ul>
 
-              <h3 className="text-xl font-semibold mt-4 sm:mt-6">Admin Dashboard Capabilities:</h3>
-              <ul className="list-inside list-[circle] space-y-1 ml-5 text-xs sm:text-sm md:text-base"
->
-                <li>Update student data, manage users, and oversee platform operations.</li>
-                <li>Approve or reject leave requests.</li>
-                <li>View attendance and grading data filtered by date range and student ID.</li>
-                <li>Update own profile information including name, email, and password.</li>
-              </ul>
+  <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Impact</h3>
+  <ul className="list-inside list-[circle] space-y-1 ml-5">
+    <li>Update student data, manage users, and oversee platform operations.</li>
+    <li>Approve or reject leave requests.</li>
+    <li>View attendance and grading data filtered by date range and student ID.</li>
+    <li>Update own profile information including name, email, and password.</li>
+  </ul>
 
-              <h3 className="text-xl font-semibold mt-4 sm:mt-6">Impact:</h3>
-              <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                Improved operational efficiency by centralizing attendance tracking, leave management, and grading workflows in one intuitive platform.
-              </p>
+  <div className="mt-4">
+    <span className="text-sm font-semibold text-black font-bold">Technologies used:</span>
+    <div className="flex flex-wrap gap-2 mt-2">
+      {["React.js", "Redux", "Postman", "HTML5", "CSS3", "REST API", "Git"].map((tech) => (
+        <span
+          key={tech}
+          className="flex-1 px-2 py-1 rounded text-xs sm:text-sm text-white bg-purple-600 text-center whitespace-nowrap"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>
 
-    
-              <div className="mt-4">
-                <span className="text-sm font-semibold text-black-800 font-bold">Technologies used:</span>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {["React.js", "Redux", "JavaScript", "HTML5", "CSS3", "REST API", "Git"].map((tech) => (
-                    <span
-                      key={tech}
-                      className="flex-1 px-2 py-1 rounded text-sm text-white bg-purple-600 text-center whitespace-nowrap"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
             <BackButton onClick={closeAllDetails} />
           </>
         )}
