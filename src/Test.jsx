@@ -1,83 +1,72 @@
-import { Briefcase, Code, Database, Shield, Smartphone, Lock, Server, Zap } from 'lucide-react';
+import React from "react";
 
-const services = [
+const Process = () => {
+ const steps = [
   {
-    icon: <Code className="w-8 h-8 text-indigo-500" />,
-    title: 'Frontend Development',
-    description: 'Build stunning, responsive UIs using React, Vue, Next.js, and Tailwind CSS.',
+    title: "1. Discovery & Planning",
+    description:
+      "Understand client requirements, goals, and technical needs. Create a clear project plan and timeline.",
   },
   {
-    icon: <Database className="w-8 h-8 text-green-500" />,
-    title: 'Backend Development',
-    description: 'Design scalable APIs and systems with Node.js, Express, MongoDB, and MySQL.',
+    title: "2. Design & Prototype",
+    description:
+      "Build UI/UX wireframes and interactive prototypes for feedback and approval.",
   },
   {
-    icon: <Smartphone className="w-8 h-8 text-blue-500" />,
-    title: 'Responsive Design',
-    description: 'Ensure a seamless experience across mobile, tablet, and desktop devices.',
+    title: "3. Development",
+    description:
+      "Write clean, maintainable code for both frontend (React.js) and backend (Node.js, Express, MongoDB).",
   },
   {
-    icon: <Shield className="w-8 h-8 text-red-500" />,
-    title: 'Security & Optimization',
-    description: 'Implement best practices for web security, performance, and SEO.',
+    title: "4. Testing & QA",
+    description:
+      "Conduct thorough testing, fix bugs, and optimize performance to ensure a smooth user experience.",
   },
   {
-    icon: <Lock className="w-8 h-8 text-pink-500" />,
-    title: 'Cybersecurity for Web',
-    description: 'Protect your web applications with vulnerability assessments, secure coding, and threat mitigation.',
+    title: "5. Deployment & Launch",
+    description:
+      "Deploy the app to live servers, configure custom domains, and ensure optimal hosting setup on your given domain or hosting. Includes SSL, performance tweaks, and analytics integration.",
   },
   {
-    icon: <Server className="w-8 h-8 text-yellow-500" />,
-    title: 'DevOps & Deployment',
-    description: 'Automate infrastructure, CI/CD pipelines, and deploy applications seamlessly on cloud platforms.',
-  },
-  {
-    icon: <Zap className="w-8 h-8 text-teal-500" />,
-    title: 'Build API',
-    description: 'Create robust RESTful and GraphQL APIs with proper documentation and versioning.',
-  },
-  {
-    icon: <Briefcase className="w-8 h-8 text-yellow-400" />,
-    title: 'Maintenance & Support',
-    description: 'Ongoing updates, backups, and improvements to keep your site running smoothly.',
-  },
+    title: "6. Maintenance & Support",
+    description:
+      "Provide ongoing support, regular updates, backups, and feature enhancements after launch.",
+  }
+
 ];
 
-export default function FreelanceServices() {
+
   return (
-    <section className="py-16 px-4 md:px-12 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800 dark:text-white">
-          Full Stack Development Services
-        </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-          I help businesses and entrepreneurs build fast, secure, and scalable web applications from concept to deployment.
-        </p>
+    <section className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">
+        My Development Process
+      </h2>
+      <div className="space-y-6">
+{steps.map(({ title, description }, idx) => (
+  <div key={idx} className="flex items-start space-x-4">
+    <div className="flex-shrink-0">
+      <div className="
+        h-5 w-5
+        sm:h-6 sm:w-6
+        md:h-8 md:w-8
+        lg:h-10 lg:w-10
+        rounded-full bg-purple-600 text-white flex items-center justify-center font-bold
+        text-xs sm:text-sm md:text-lg lg:text-xl
+      ">
+        {idx + 1}
+      </div>
+    </div>
+    <div>
+      <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+      <p className="mt-2 text-gray-600 leading-relaxed text-base">{description}</p>
+    </div>
+  </div>
+))}
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-shadow p-6 text-left"
-            >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">{service.description}</p>
-            </div>
-          ))}
-        </div>
 
-        <div className="mt-12">
-          <a
-            href="#contact"
-            className="inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition"
-          >
-            Get in Touch
-          </a>
-        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Process;
