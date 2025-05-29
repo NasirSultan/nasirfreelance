@@ -8,6 +8,6 @@
   <li>Security Auditing Tools (e.g., Nikto, OWASP ZAP)</li>
   <li>Monitoring & Logging (e.g., UptimeRobot, Logwatch)</li>
   <li>Backup & Disaster Recovery (e.g., rsync, cron jobs, Snapshots)</li>
-  <li>Incident Response Planning</li>
+
   <li>Compliance & Privacy Standards (GDPR, ISO 27001 basics)</li>
 </ul>
