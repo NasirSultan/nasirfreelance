@@ -4,6 +4,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import markdownContent from './Text.md?raw';
 import markdownContent2 from './Textt.md?raw';
+import markdownContent3 from './Texttt.md?raw';
 import { Info, Search, Code, BookOpen } from 'lucide-react';
 
 export default function MarkdownDisplay() {
@@ -26,6 +27,13 @@ export default function MarkdownDisplay() {
       title: 'Facade',
       description: 'Creating Custom Facades in Laravel: A Practical Guide',
       markdown: markdownContent2,
+      Icon: BookOpen,
+    },
+    {
+      key: 'third',
+      title: 'Association ',
+      description: 'Understanding Object and Method Relationships in Coding',
+      markdown: markdownContent3,
       Icon: BookOpen,
     },
   ];
