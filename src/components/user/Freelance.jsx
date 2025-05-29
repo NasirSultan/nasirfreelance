@@ -62,7 +62,7 @@ const steps = [
 
 const FreelanceSection = () => {
   return (
-   <div className="mx-auto sm:px-6 lg:px-8 py-12 sm:py-16 font-sans text-gray-900 md:w-4/5">
+    <div className="mx-auto sm:px-6 lg:px-8 py-12 sm:py-16 font-sans text-gray-900 md:w-4/5">
       {/* Header */}
       <header className="text-center max-w-4xl mx-auto mb-16 sm:mb-20">
         <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
@@ -173,9 +173,9 @@ const FreelanceSection = () => {
         <div className="grid md:grid-cols-3 gap-5">
           {testimonials.map(({ name, role, quote }, i) => (
             <div key={i} className="bg-purple-300 p-4 rounded-2xl text-white shadow-inner">
-              <p className="mb-2 italic text-purple-900">"{quote}"</p> 
-<p className="font-semibold text-lg">{name}</p> 
-<p className="text-sm text-black">{role}</p> 
+              <p className="mb-2 italic text-purple-900">"{quote}"</p>
+              <p className="font-semibold text-lg">{name}</p>
+              <p className="text-sm text-black">{role}</p>
 
             </div>
           ))}
