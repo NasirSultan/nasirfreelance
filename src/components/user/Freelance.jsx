@@ -193,19 +193,19 @@ const FreelanceSection = () => {
         <div className="space-y-6">
           {steps.map(({ title, description }, idx) => (
             <div key={idx} className="flex items-start space-x-4">
-              <div className="flex-shrink-0 mt-2">
+              <div className="flex-shrink-0 mt-[0.365rem]">
                 <div className="
         h-5 w-5
-        sm:h-6 sm:w-6
+        sm:h-5 sm:w-5
         md:h-8 md:w-8
         lg:h-10 lg:w-10
         rounded-full bg-purple-600 text-white flex items-center justify-center font-bold
-        text-xs sm:text-sm md:text-lg lg:text-xl
+        text-xs sm:text-sm md:text-lg lg:text-xl 
       ">
                   {idx + 1}
                 </div>
               </div>
-              <div>
+              <div className="">
                 <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
                 <p className="mt-2 text-gray-600 leading-relaxed text-base">{description}</p>
               </div>
