@@ -7,6 +7,7 @@ import Experience from './components/user/Experience'
 import Profile from './components/user/Profile'
 import Contact from './components/user/Contact'
 import Text from './components/mddata/Text'
+import Ai from './components/otherdata/Ai'
 import Test from './Test'
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/Experience" element={<Experience/>} />
            <Route path="/Freelance" element={<Freelance/>} />
                <Route path="/Portfolio" element={<Portfolio/>} />
+                 <Route path="/Ai" element={<Ai/>} />
       </Routes>
     </Layout>
   )
