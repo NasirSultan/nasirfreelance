@@ -7,7 +7,8 @@ import {
   FileText,
   User,
   ChevronUp,
-  ChevronDown
+  ChevronDown,
+   Bot
 } from 'lucide-react'
 
 const Layout = ({ children }) => {
@@ -21,7 +22,9 @@ const Layout = ({ children }) => {
     { to: '/Freelance', label: 'Freelancing', icon: <Handshake size={20} /> },
     { to: '/Text', label: 'Articles', icon: <FileText size={20} /> },
     { to: '/profile', label: 'Profile', icon: <User size={20} /> },
-  ]
+     { to: '/Ai', label: 'AI Assistant', icon: <Bot size={20} /> }, // 👈 AI Button
+]
+  
 
   useEffect(() => {
     const checkScroll = () => {

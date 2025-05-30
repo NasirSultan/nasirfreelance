@@ -136,13 +136,7 @@ export default function Homepage() {
           >
             Experience
           </Link>
-            <Link
-            to="/Ai"
-            className="w-full md:w-auto lg:w-64 bg-white text-purple-700 font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-purple-100 transition text-center text-sm md:text-base"
-            aria-label="Information"
-          >
-            Ai
-          </Link>
+          
 
         </div>
       </section>
