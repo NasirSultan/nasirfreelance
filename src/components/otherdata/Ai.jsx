@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 const GeminiFlashAI = () => {
@@ -8,6 +8,8 @@ const GeminiFlashAI = () => {
   const [error, setError] = useState('');
   const [typingText, setTypingText] = useState(''); // Currently typing response
   const [currentPrompt, setCurrentPrompt] = useState(''); // Prompt for current typing
+
+  const typingTimeoutRef = useRef(null);
 
   const GEMINI_API_KEY = "AIzaSyCOHvkgqyBzOebZjKAyx8oVYHzEwxxgQGE"; // Replace securely
 
@@ -47,12 +49,12 @@ const GeminiFlashAI = () => {
           if (i < text.length) {
             setTypingText((prev) => prev + text.charAt(i));
             i++;
-            setTimeout(typeChar, speed);
+            typingTimeoutRef.current = setTimeout(typeChar, speed);
           } else {
-            // Add the full typed response to outputs
             setOutputs((prev) => [...prev, { prompt: input, response: text }]);
             setTypingText('');
             setCurrentPrompt('');
+            typingTimeoutRef.current = null;
           }
         };
 
@@ -66,6 +68,18 @@ const GeminiFlashAI = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleClear = () => {
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+      typingTimeoutRef.current = null;
+    }
+    setOutputs([]);
+    setTypingText('');
+    setCurrentPrompt('');
+    setError('');
+    setLoading(false);
   };
 
   return (
@@ -154,13 +168,9 @@ const GeminiFlashAI = () => {
           {(outputs.length > 0 || typingText) && (
             <div className="fixed md:bottom-15 md:right-20 z-50 flex justify-center bottom-35 right-4">
               <button
-                className="w-12 h-12 bg-purple-800 text-white font-semibold rounded-full shadow-lg hover:bg-purple-900 transition-colors flex items-center justify-center text-sm cursor-default"
+                className="w-12 h-12 bg-purple-800 text-white font-semibold rounded-full shadow-lg hover:bg-purple-900 transition-colors flex items-center justify-center text-sm cursor-pointer"
                 type="button"
-                onClick={() => {
-                  setOutputs([]);
-                  setTypingText('');
-                  setCurrentPrompt('');
-                }}
+                onClick={handleClear}
                 title="Clear"
               >
                 ←
