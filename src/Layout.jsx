@@ -93,7 +93,7 @@ const Layout = ({ children }) => {
     <div className="relative h-screen flex flex-col">
       {/* Top Navigation Bar (Desktop Only) */}
       <div className="hidden md:flex fixed top-0 left-0 right-0 items-center justify-between px-6 py-4 border-b border-gray-200 bg-white shadow-md z-10">
-        <h1 className="text-2xl font-bold">My App</h1>
+        <h1 className="text-2xl font-bold">Freelancing</h1>
         <div className="flex gap-6">
           {navItems.map(({ to, label, icon }) => (
             <Link

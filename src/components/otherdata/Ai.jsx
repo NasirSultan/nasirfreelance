@@ -91,9 +91,8 @@ const GeminiFlashAI = () => {
       )}
 
       <div
-        className={`w-full max-w-4xl flex flex-col ${
-          outputs.length > 0 || typingText ? 'pb-32 space-y-8' : ''
-        }`}
+        className={`w-full max-w-4xl flex flex-col ${outputs.length > 0 || typingText ? 'pb-32 space-y-8' : ''
+          }`}
       >
         {/* Chat history */}
         {(outputs.length > 0 || typingText) && (
@@ -103,8 +102,13 @@ const GeminiFlashAI = () => {
                 key={index}
                 className="w-full bg-white rounded-md shadow-md p-6 prose prose-blue"
               >
-                <p className="font-semibold text-gray-600">{entry.prompt}</p>
-                <hr className="my-4" />
+                <div className="text-right">
+<p className="font-semibold bg-purple-200 text-purple px-4 py-2 my-2 inline-block 
+  rounded-tl-3xl rounded-bl-lg rounded-br-lg rounded-tr-none 
+  shadow-md tracking-wide">
+                    {entry.prompt}
+                  </p>
+                </div>
                 <ReactMarkdown
                   components={{
                     code({ inline, className, children, ...props }) {
@@ -132,22 +136,28 @@ const GeminiFlashAI = () => {
             {/* Typing animation message */}
             {typingText && (
               <div className="w-full bg-white rounded-md shadow-md p-6 prose prose-blue">
-                <p className="font-semibold text-gray-600">{currentPrompt}</p>
-                <hr className="my-4" />
+               
+         <div className="text-right">
+                 <p className="font-semibold bg-purple-200 text-purple px-4 py-2 my-2 inline-block 
+  rounded-tl-3xl rounded-bl-lg rounded-br-lg rounded-tr-none 
+  shadow-md tracking-wide">
+                    {currentPrompt}
+                  </p>
+                </div>
                 <ReactMarkdown>{typingText}</ReactMarkdown>
               </div>
             )}
+
           </div>
         )}
 
         {/* Form fixed at bottom if outputs exist */}
         <form
           onSubmit={handleSubmit}
-          className={`flex flex-wrap gap-4 items-center justify-center px-4 ${
-            outputs.length > 0 || typingText
+          className={`flex flex-wrap gap-4 items-center justify-center px-4 ${outputs.length > 0 || typingText
               ? 'fixed left-0 w-full bg-gray-50 z-10 bottom-14 md:bottom-8'
               : ''
-          }`}
+            }`}
         >
           <textarea
             className="flex-grow min-w-[250px] rounded-lg max-w-[600px] pt-3 px-2 text-base leading-none shadow-sm border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-900 resize-y min-h-[30px] hover:border-purple-400"
