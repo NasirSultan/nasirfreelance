@@ -103,7 +103,7 @@ const GeminiFlashAI = () => {
                 className="w-full bg-white rounded-md shadow-md p-6 prose prose-blue"
               >
                 <div className="text-right">
-<p className="font-semibold bg-purple-200 text-purple px-4 py-2 my-2 inline-block 
+                  <p className="font-semibold bg-purple-200 text-purple px-4 py-2 my-2 inline-block 
   rounded-tl-3xl rounded-bl-lg rounded-br-lg rounded-tr-none 
   shadow-md tracking-wide">
                     {entry.prompt}
@@ -136,9 +136,9 @@ const GeminiFlashAI = () => {
             {/* Typing animation message */}
             {typingText && (
               <div className="w-full bg-white rounded-md shadow-md p-6 prose prose-blue">
-               
-         <div className="text-right">
-                 <p className="font-semibold bg-purple-200 text-purple px-4 py-2 my-2 inline-block 
+
+                <div className="text-right">
+                  <p className="font-semibold bg-purple-200 text-purple px-4 py-2 my-2 inline-block 
   rounded-tl-3xl rounded-bl-lg rounded-br-lg rounded-tr-none 
   shadow-md tracking-wide">
                     {currentPrompt}
@@ -155,8 +155,8 @@ const GeminiFlashAI = () => {
         <form
           onSubmit={handleSubmit}
           className={`flex flex-wrap gap-4 items-center justify-center px-4 ${outputs.length > 0 || typingText
-              ? 'fixed left-0 w-full bg-gray-50 z-10 bottom-14 md:bottom-8'
-              : ''
+            ? 'fixed left-0 w-full bg-gray-50 z-10 bottom-14 md:bottom-8'
+            : ''
             }`}
         >
           <textarea
@@ -170,7 +170,7 @@ const GeminiFlashAI = () => {
           <button
             type="submit"
             disabled={loading}
-            className="whitespace-nowrap bg-purple-600 text-white w-full sm:w-auto px-12 py-[10px] rounded-md text-lg font-medium hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+            className="whitespace-nowrap bg-purple-700 text-white w-full sm:w-auto px-12 py-[10px] rounded-md text-lg font-medium hover:bg-purple-900 disabled:opacity-50 disabled:cursor-not-allowed transition"
           >
             {loading ? 'Thinking...' : 'Ask'}
           </button>
