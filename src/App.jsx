@@ -7,6 +7,8 @@ import Experience from './components/user/Experience'
 import Profile from './components/user/Profile'
 import Contact from './components/user/Contact'
 import Text from './components/mddata/Text'
+import Post from './components/mddata/Post'
+import Article from './components/mddata/Article'
 import Ai from './components/otherdata/Ai'
 import Test from './Test'
 function App() {
@@ -26,6 +28,8 @@ function App() {
            <Route path="/Freelance" element={<Freelance/>} />
                <Route path="/Portfolio" element={<Portfolio/>} />
                  <Route path="/Ai" element={<Ai/>} />
+                    <Route path="/Post" element={<Post/>} />
+                       <Route path="/Article" element={<Article/>} />
       </Routes>
     </Layout>
   )

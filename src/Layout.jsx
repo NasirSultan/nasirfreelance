@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
     { to: '/Ai', label: 'AI Assistant', icon: <Bot size={20} /> },
     { to: '/Portfolio', label: 'Portfolio', icon: <Briefcase size={20} /> },
     { to: '/Freelance', label: 'Freelancing', icon: <Handshake size={20} /> },
-    { to: '/Text', label: 'Articles', icon: <FileText size={20} /> },
+    { to: '/Article', label: 'Articles', icon: <FileText size={20} /> },
     { to: '/profile', label: 'Profile', icon: <User size={20} /> },
   ]
 
