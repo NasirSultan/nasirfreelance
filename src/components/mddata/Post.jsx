@@ -8,7 +8,7 @@ export default function PostList() {
   const [visibleExplanations, setVisibleExplanations] = useState({});
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/posts')
+    fetch('https://myspace-backend.vercel.app/api/posts')
       .then(res => {
         if (!res.ok) throw new Error('Failed to fetch posts');
         return res.json();
@@ -39,10 +39,8 @@ export default function PostList() {
 
   return (
     <div className="
-      mx-auto mt-10 p-4 max-w-full
-      sm:max-w-2xl sm:px-6
-      md:max-w-5xl md:px-12
-      lg:max-w-6xl lg:px-16
+      mx-auto mt-10  max-w-full
+    
     ">
       <h1 className="
         text-2xl font-bold mb-3 text-center
@@ -64,28 +62,27 @@ export default function PostList() {
       {posts.length === 0 ? (
         <p className="text-center text-gray-500">No posts found.</p>
       ) : (
-        <ul className="space-y-6">
+        <ul className="">
           {posts.map(post => {
-            const encodedUrl = encodeURI(`http://localhost:5000${post.fileUrl || ''}`);
+            const encodedUrl = encodeURI(`https://myspace-backend.vercel.app${post.fileUrl || ''}`);
             const isVisible = visibleExplanations[post._id] || false;
             const isImage = /\.(jpeg|jpg|png|gif)$/i.test(post.fileUrl || '');
 
             return (
               <li key={post._id} className="
-                rounded-lg p-4 shadow-md hover:shadow-lg transition
-                sm:p-6
-                md:p-8
-                lg:p-10
+                rounded-lg  shadow-md hover:shadow-lg transition
+              
               ">
                 <div className="flex justify-between items-center mb-3">
                   <h2 className="
-                    text-lg font-semibold
-                    sm:text-xl
-                    md:text-3xl
-                    lg:text-4xl
-                  ">
+  font-extrabold text-lg
+  sm:text-2xl
+  md:text-4xl
+  lg:text-5xl
+">
                     {post.title}
                   </h2>
+
                 </div>
 
                 {post.fileUrl && isImage && (
