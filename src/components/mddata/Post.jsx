@@ -38,10 +38,7 @@ export default function PostList() {
   };
 
   return (
-    <div className="
-      mx-auto mt-10  max-w-full
-    
-    ">
+    <div className="mx-auto mt-10 max-w-full">
       <h1 className="
         text-2xl font-bold mb-3 text-center
         sm:text-3xl
@@ -62,27 +59,23 @@ export default function PostList() {
       {posts.length === 0 ? (
         <p className="text-center text-gray-500">No posts found.</p>
       ) : (
-        <ul className="">
+        <ul>
           {posts.map(post => {
             const encodedUrl = encodeURI(`https://myspace-backend.vercel.app${post.fileUrl || ''}`);
             const isVisible = visibleExplanations[post._id] || false;
             const isImage = /\.(jpeg|jpg|png|gif)$/i.test(post.fileUrl || '');
 
             return (
-              <li key={post._id} className="
-                rounded-lg  shadow-md hover:shadow-lg transition
-              
-              ">
+              <li key={post._id} className="rounded-lg shadow-md hover:shadow-lg transition p-4 mb-6">
                 <div className="flex justify-between items-center mb-3">
                   <h2 className="
-  font-extrabold text-lg
-  sm:text-2xl
-  md:text-4xl
-  lg:text-5xl
-">
+                    font-extrabold text-lg
+                    sm:text-2xl
+                    md:text-4xl
+                    lg:text-5xl
+                  ">
                     {post.title}
                   </h2>
-
                 </div>
 
                 {post.fileUrl && isImage && (
@@ -90,6 +83,7 @@ export default function PostList() {
                     src={encodedUrl}
                     alt={post.title}
                     className="max-w-full h-auto rounded"
+                    onError={(e) => { e.target.style.display = 'none'; }}
                   />
                 )}
 
@@ -102,6 +96,7 @@ export default function PostList() {
                 >
                   {isVisible ? 'Hide Explanation' : 'Show Explanation'}
                 </button>
+
                 {isVisible && (
                   <div className="mb-3 prose max-w-none md:text-lg lg:text-xl">
                     <ReactMarkdown components={components}>

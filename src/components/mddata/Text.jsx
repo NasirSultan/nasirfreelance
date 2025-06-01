@@ -6,7 +6,7 @@ import markdownContent from './Text.md?raw';
 import markdownContent2 from './Textt.md?raw';
 import markdownContent3 from './Texttt.md?raw';
 import markdownContent4 from './Stream.md?raw';
-
+import markdownContent5 from './WebSocket.md?raw';
 
 import { Info, Search, Code, BookOpen } from 'lucide-react';
 
@@ -46,6 +46,14 @@ export default function MarkdownDisplay() {
       markdown: markdownContent4,
       Icon: BookOpen,
     },
+    {
+  key: 'fifth',
+  title: 'WebSocket',
+  description: 'Building a Real-Time Multi-Window Chat Application Using React and WebSocket',
+  markdown: markdownContent5,
+  Icon: BookOpen,
+}
+
   ];
 
   function loadContent(md) {
