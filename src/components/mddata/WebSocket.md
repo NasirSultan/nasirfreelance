@@ -29,4 +29,4 @@ The main app renders multiple `ChatPopup` instances with distinct usernames, all
 
 This approach provides a lightweight, scalable way to implement real-time chat functionality using standard WebSocket technology combined with React’s component model. You can build on this foundation by adding features like message persistence, authentication, typing indicators, and more.
 
- [Github](https://github.com/NasirSultan/node-react-websocket-chat)
+ [Github Code](https://github.com/NasirSultan/node-react-websocket-chat)
