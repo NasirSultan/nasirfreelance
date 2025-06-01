@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const RedirectLink = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50 p-6">
-      <div className="w-[70vw] max-w-3xl bg-white p-8 rounded-lg shadow-lg text-center">
+    <div className="flex justify-center items-center min-h-screen  ">
+      <div className="md:w-[70vw] w-full bg-white p-2   text-center">
         <h1 className="text-3xl font-bold text-gray-800 mb-4">
           Welcome to Our Content Hub
         </h1>

@@ -83,9 +83,9 @@ const GeminiFlashAI = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6 font-sans">
+    <div className="min-h-screen -50 flex flex-col items-center justify-center p-6 font-sans">
       {!outputs.length && !typingText && (
-        <h1 className=" md:text-5xl text-2xl font-bold sm:mb-6 md:mb-8 text-gray-900">
+        <h1 className=" md:text-5xl text-2xl font-bold mb-4 md:mb-8 text-gray-900">
           What can I help with?
         </h1>
       )}
