@@ -1,26 +1,38 @@
-import React from "react";
-import { generateUploadButton } from "@uploadthing/react";
+import React, { useEffect, useState } from 'react';
 
-// Make sure this URL points to your backend API (with CORS enabled)
-const UploadButton = generateUploadButton({
-  url: "http://localhost:3000/api/uploadthing",
-});
+const CenteredComponent = () => {
+  const [showMessage, setShowMessage] = useState(true);
 
-export default function UploadComponent() {
+  useEffect(() => {
+    // Hide the initial message after 3 seconds
+    const initialTimeout = setTimeout(() => setShowMessage(false), 3000);
+
+    // Show the message every 1 minute for 3 seconds
+    const interval = setInterval(() => {
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 3000);
+    }, 10000);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
-    <div style={{ padding: 20 }}>
-      <h2>Upload an Image</h2>
-      <UploadButton
-        endpoint="imageUploader"
-        onClientUploadComplete={(res) => {
-          console.log("Upload complete! Response:", res);
-          alert("Upload successful!");
-        }}
-        onUploadError={(error) => {
-          console.error("Upload failed:", error);
-          alert("Upload failed! Check console for details.");
-        }}
-      />
+    <div className="relative h-screen  bg-gray-100 flex items-center justify-center">
+     
+      {showMessage && (
+<div className="fixed right-2 sm:right-4 md:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 
+  bg-purple-400 rounded-3xl p-2 
+  text-xs sm:text-xs md:text-[11px] lg:text-[10px] 
+  text-purple-800 font-semibold z-50">
+  Click on pic to see explanation
+</div>
+
+      )}
     </div>
   );
-}
+};
+
+export default CenteredComponent;

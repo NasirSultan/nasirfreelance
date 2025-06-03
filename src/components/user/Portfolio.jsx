@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -28,6 +28,7 @@ const ProjectComponent = () => {
   const [showDetailsProject1, setShowDetailsProject1] = useState(false);
   const [showDetailsProject2, setShowDetailsProject2] = useState(false);
   const [showDetailsProject3, setShowDetailsProject3] = useState(false);
+    const [showMessage, setShowMessage] = useState(true);
   // Combined close handler to reset all details views
   const closeAllDetails = () => {
     setShowDetailsProject1(false);
@@ -58,8 +59,63 @@ const ProjectComponent = () => {
     "https://media.gettyimages.com/id/1475870499/photo/education-high-five-and-teacher-with-children-in-classroom-for-learning-support-and.jpg?s=612x612&w=gi&k=20&c=RnZRKGNE0ai_1qR2M8FYlSQfrr2ea1e98uP_14TE2Pc="
   ];
   const images2 = [Screenshot1, Screenshot2, Screenshot3];
+
+  useEffect(() => {
+    // Hide the initial message after 3 seconds
+    const initialTimeout = setTimeout(() => setShowMessage(false), 4000);
+
+    // Show the message every 1 minute for 3 seconds
+    const interval = setInterval(() => {
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 4000);
+    }, 1000000);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(interval);
+    };
+  }, []);
+
+
+
   return (
     <>
+
+     
+      {showMessage && (
+<div className="fixed right-2 sm:right-4 md:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 
+  bg-purple-400 rounded-3xl p-2 
+  text-xs sm:text-xs md:text-[11px] lg:text-[10px] 
+  text-purple-800 font-semibold z-50">
+  Click on pic for explanation
+</div>
+
+      )}
+   
+
+
+<>
+
+<div className="w-full flex justify-center px-4">
+  <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] text-center">
+    <h2  className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
+      Welcome to my Project Highlights
+    </h2>
+
+    <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
+      My projects involve real-world functionality such as user authentication, data visualization, payment processing, RESTful APIs, and integration with third-party services. I enjoy solving problems through clean architecture, reusable components, and efficient database design.
+    </p>
+
+    <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
+      In parallel, I'm diving deeper into Cybersecurity—learning secure development practices, identifying vulnerabilities like XSS, SQL Injection, CSRF, and implementing strategies to protect data and infrastructure. My goal is to build applications that are not only functional but also secure and resilient.
+    </p>
+  </div>
+</div>
+
+</>
+
+
+
       {/* Project 1 */}
       <div className="bg-white py-10 px-5 rounded-xl shadow-lg max-w-5xl mx-auto my-10 border border-gray-200 relative">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-black">

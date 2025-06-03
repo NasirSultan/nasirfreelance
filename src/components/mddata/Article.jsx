@@ -5,8 +5,8 @@ const RedirectLink = () => {
   return (
     <div className="flex justify-center items-center min-h-screen  ">
       <div className="md:w-[70vw] w-full bg-white p-2   text-center">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Welcome to Our Content Hub
+        <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
+          Welcome to my Content Hub
         </h1>
         <p className="text-gray-600 mb-8">
           Choose one of the options below to explore our posts and articles.

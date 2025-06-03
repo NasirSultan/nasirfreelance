@@ -3,7 +3,7 @@ import React from "react";
 const ExperienceSection = () => {
     return (
         <section className="max-w-4xl mx-auto p-6">
-           <h2 className="text-lg sm:text-2xl md:text-3xl font-bold mb-2 border-b pb-2 text-black">
+           <h2 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
   Full Stack Development Experience
 </h2>
 <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">

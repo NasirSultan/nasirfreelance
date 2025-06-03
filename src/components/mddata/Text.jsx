@@ -7,7 +7,7 @@ import markdownContent2 from './Textt.md?raw';
 import markdownContent3 from './Texttt.md?raw';
 import markdownContent4 from './Stream.md?raw';
 import markdownContent5 from './WebSocket.md?raw';
-
+import markdownContent6 from './Googlelogin.md?raw';
 import { Info, Search, Code, BookOpen } from 'lucide-react';
 
 export default function MarkdownDisplay() {
@@ -52,8 +52,14 @@ export default function MarkdownDisplay() {
   description: 'Building a Real-Time Multi-Window Chat Application Using React and WebSocket',
   markdown: markdownContent5,
   Icon: BookOpen,
-}
-
+},
+    {
+  key: 'sixth',
+  title: 'Googlelogin Auth',
+  description: 'Easy Google Login in a MERN Stack App',
+  markdown: markdownContent6,
+  Icon: BookOpen,
+},
   ];
 
   function loadContent(md) {
