@@ -109,7 +109,7 @@ Make sure the tone is conversational and natural, as if written by a real person
             typeChar();
         } catch (err) {
             console.error(err);
-            setError("Failed to fetch from Gemini.");
+            setError("Failed to fetch from Server.");
             setLoading(false);
         }
     };

@@ -60,11 +60,11 @@ const GEMINI_API_KEY = import.meta.env.VITE_GREETING;
 
         typeChar();
       } else {
-        setError('No valid response from Gemini.');
+        setError('No valid response from Server.');
       }
     } catch (err) {
       console.error(err);
-      setError('Failed to fetch from Gemini.');
+      setError('Failed to fetch from Server.');
     } finally {
       setLoading(false);
     }
