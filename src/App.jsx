@@ -10,6 +10,7 @@ import Text from './components/mddata/Text'
 import Post from './components/mddata/Post'
 import Article from './components/mddata/Article'
 import Ai from './components/otherdata/Ai'
+import AIagent from './components/otherdata/AIagent'
 import Test from './Test'
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
                  <Route path="/Ai" element={<Ai/>} />
                     <Route path="/Post" element={<Post/>} />
                        <Route path="/Article" element={<Article/>} />
+                                  <Route path="/AIagent" element={<AIagent/>} />
       </Routes>
     </Layout>
   )

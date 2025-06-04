@@ -11,7 +11,7 @@ const GeminiFlashAI = () => {
 
   const typingTimeoutRef = useRef(null);
 
-  const GEMINI_API_KEY = "AIzaSyCOHvkgqyBzOebZjKAyx8oVYHzEwxxgQGE"; // Replace securely
+const GEMINI_API_KEY = import.meta.env.VITE_GREETING;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
