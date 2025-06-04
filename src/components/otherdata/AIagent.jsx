@@ -27,15 +27,13 @@ export default function LinkedinPostGenerator() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!input.trim()) return;
-
         setLoading(true);
         setError("");
         setPost(null);
 
+
         const prompt = `You are a friendly LinkedIn content creator. Given the command:
-
 "${input}"
-
 Write a simple, clear, and engaging LinkedIn post in English. 
 Respond ONLY with a valid JSON object with the keys:
 
@@ -57,24 +55,19 @@ Make sure the tone is conversational and natural, as if written by a real person
                     }),
                 }
             );
-
             const data = await response.json();
             const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-
             if (!text) {
                 setError("No valid response from Gemini.");
                 setLoading(false);
                 return;
             }
-
             const jsonResponse = extractJSON(text);
-
             if (!jsonResponse || typeof jsonResponse.title !== "string") {
                 setError("Failed to extract valid JSON from Gemini response.");
                 setLoading(false);
                 return;
             }
-
             setInput("");
             setPost({
                 title: `**${jsonResponse.title}**`,
@@ -83,14 +76,12 @@ Make sure the tone is conversational and natural, as if written by a real person
                     ? jsonResponse.hashtags
                     : [],
             });
-
             let i = 0;
             const explanationText =
                 typeof jsonResponse.explanation === "string"
                     ? jsonResponse.explanation
                     : "";
             const speed = 20;
-
             const typeChar = () => {
                 if (i < explanationText.length) {
                     setPost((prev) => ({
@@ -105,8 +96,8 @@ Make sure the tone is conversational and natural, as if written by a real person
                     setLoading(false);
                 }
             };
-
             typeChar();
+     
         } catch (err) {
             console.error(err);
             setError("Failed to fetch from Server.");
@@ -122,14 +113,14 @@ Make sure the tone is conversational and natural, as if written by a real person
 
             {!post && (
                 <form onSubmit={handleSubmit} className="w-full max-w-sm sm:max-w-md md:max-w-xl relative " >
-                   <textarea
-    placeholder="Enter your command here..."
-    value={input}
-    onChange={(e) => setInput(e.target.value)}
-    rows={1}
-    className="w-full pr-28 sm:pr-32 p-2 sm:p-3 md:p-3 rounded-lg text-base resize-none text-purple-700"
-    disabled={loading}
-/>
+                    <textarea
+                        placeholder="Enter your command here..."
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        rows={1}
+                        className="w-full pr-28 sm:pr-32 p-2 sm:p-3 md:p-3 rounded-lg text-base resize-none text-purple-700"
+                        disabled={loading}
+                    />
 
                     <button
                         type="submit"

@@ -3,12 +3,11 @@ import ReactMarkdown from 'react-markdown';
 
 const GeminiFlashAI = () => {
   const [input, setInput] = useState('');
-  const [outputs, setOutputs] = useState([]); // Completed chats
+  const [outputs, setOutputs] = useState([]); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [typingText, setTypingText] = useState(''); // Currently typing response
-  const [currentPrompt, setCurrentPrompt] = useState(''); // Prompt for current typing
-
+  const [typingText, setTypingText] = useState(''); 
+  const [currentPrompt, setCurrentPrompt] = useState(''); 
   const typingTimeoutRef = useRef(null);
 
 const GEMINI_API_KEY = import.meta.env.VITE_GREETING;
@@ -16,12 +15,10 @@ const GEMINI_API_KEY = import.meta.env.VITE_GREETING;
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-
     setLoading(true);
     setError('');
     setTypingText('');
     setCurrentPrompt(input);
-
     try {
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
@@ -36,15 +33,12 @@ const GEMINI_API_KEY = import.meta.env.VITE_GREETING;
 
       const data = await response.json();
       console.log("Fetched data:", data);
-
       const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
       if (text) {
         setInput('');
-
         let i = 0;
         const speed = 20;
-
         const typeChar = () => {
           if (i < text.length) {
             setTypingText((prev) => prev + text.charAt(i));
@@ -57,7 +51,6 @@ const GEMINI_API_KEY = import.meta.env.VITE_GREETING;
             typingTimeoutRef.current = null;
           }
         };
-
         typeChar();
       } else {
         setError('No valid response from Server.');
