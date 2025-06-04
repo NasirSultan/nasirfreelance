@@ -121,15 +121,16 @@ Make sure the tone is conversational and natural, as if written by a real person
             </h1>
 
             {!post && (
-                <form onSubmit={handleSubmit} className="w-full max-w-sm sm:max-w-md md:max-w-xl relative">
-                    <textarea
-                        placeholder="Enter your command here..."
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        rows={1}
-                        className="w-full pr-28 sm:pr-32 p-2 sm:p-3 md:p-3  rounded-md text-base resize-none"
-                        disabled={loading}
-                    />
+                <form onSubmit={handleSubmit} className="w-full max-w-sm sm:max-w-md md:max-w-xl relative " >
+                   <textarea
+    placeholder="Enter your command here..."
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    rows={1}
+    className="w-full pr-28 sm:pr-32 p-2 sm:p-3 md:p-3 rounded-lg text-base resize-none text-purple-700"
+    disabled={loading}
+/>
+
                     <button
                         type="submit"
                         disabled={loading || !input.trim()}

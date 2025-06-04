@@ -13,7 +13,14 @@ const skills = [
   'REST API, Git, Docker',
   'Python, MATLAB',
   'WordPress, Font Awesome',
-  'MS Office, Research, PCB Design',
+  'Authentication & Authorization (JWT, OAuth2, RBAC)',
+  'Data Validation & Input Sanitization',
+  'CSRF/XSS/SQL Injection Prevention',
+  'Secure Headers (CSP, HSTS, X-Frame-Options)',
+  'HTTPS & SSL/TLS Configuration',
+  'Secure Coding Standards (SAST/DAST Awareness)',
+  'API Security & Rate Limiting',
+  'Access Control & Session Management',
 ];
 
 const ProfileCard = () => {
@@ -23,25 +30,28 @@ const ProfileCard = () => {
     });
   };
 
-  const handleWhatsAppClick = () => {
-    const number = '+1234567890';
-    handleCopy(number);
-    window.open(`https://wa.me/${number.replace('+', '')}`, '_blank');
-  };
-
   const openSocialLink = (url) => {
     window.open(url, '_blank');
   };
 
   return (
     <div className="flex justify-center items-center w-full px-4 py-6">
-      <div className="flex flex-col items-center bg-white p-4 rounded-2xl w-full max-w-4xl">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbLLp5QgincQyF-54dj_7g31vcZMd7xkpgKw&s"
-          alt="Profile"
-          className="w-38 h-38 rounded-full object-cover border-4 border-purple-600"
-        />
-        <h2 className="mt-3 text-xl font-bold text-gray-800">Nasir Sultan</h2>
+      <div className="flex flex-col items-center bg-white p-6 rounded-2xl w-full max-w-4xl ">
+
+
+        <div className="flex flex-col items-center md:flex-row md:items-center md:gap-14 m-4">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbLLp5QgincQyF-54dj_7g31vcZMd7xkpgKw&s"
+            alt="Profile"
+            className="w-48 h-48 rounded-full object-cover border-4 border-purple-600"
+          />
+          <h2 className=" text-7xl md:text-8xl font-bold text-gray-800 
+  mt-8 mb-12
+  ">
+            Nasir Sultan
+          </h2>
+
+        </div>
 
         <div className="mt-4 w-full">
           <h3 className="text-base font-semibold text-gray-700 mb-3 text-center">
@@ -76,13 +86,7 @@ const ProfileCard = () => {
           >
             nasir@example.com
           </a>
-
-          <button
-            onClick={handleWhatsAppClick}
-            className="w-full bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded-full shadow transition"
-          >
-            +1234567890
-          </button>
+          {/* Phone number button removed */}
         </div>
 
         <div className="flex justify-center gap-6 mt-10 text-purple-600 text-2xl ">
