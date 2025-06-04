@@ -12,6 +12,13 @@ import Screenshot4 from "./Screenshot (466).png";
 import Screenshot5 from "./Screenshot (467).png";
 import Screenshot6 from "./Screenshot (468).png";
 
+
+import Screenshot7 from "./Screenshot (677).png";
+import Screenshot8 from "./Screenshot (678).png";
+import Screenshot9 from "./Screenshot (679).png";
+import Screenshot10 from "./Screenshot (680).png";
+import Screenshot11 from "./Screenshot (681).png";
+
 // Reusable BackButton component
 const BackButton = ({ onClick }) => (
   <div className="fixed md:bottom-15 md:right-20 z-50 flex justify-center bottom-35 right-4">
@@ -54,15 +61,16 @@ const ProjectComponent = () => {
     }
   };
 
-  // Sample images for both projects (you can customize)
+
 
   const images2 = [Screenshot1, Screenshot2, Screenshot3];
- const images1 = [Screenshot4, Screenshot5, Screenshot5];
+  const images1 = [Screenshot4, Screenshot5, Screenshot6];
+    const images3 = [Screenshot7, Screenshot8, Screenshot9,Screenshot10, Screenshot11];
   useEffect(() => {
-    // Hide the initial message after 3 seconds
+
     const initialTimeout = setTimeout(() => setShowMessage(false), 4000);
 
-    // Show the message every 1 minute for 3 seconds
+
     const interval = setInterval(() => {
       setShowMessage(true);
       setTimeout(() => setShowMessage(false), 4000);
@@ -117,7 +125,7 @@ const ProjectComponent = () => {
       {/* Project 1 */}
       <div className="bg-white py-10 px-5 rounded-xl shadow-lg max-w-5xl mx-auto my-10 border border-gray-200 relative">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-black">
-      Multi-Store Medical Management System
+          Multi-Store Medical Management System
         </h2>
 
         {!showDetailsProject1 ? (
@@ -144,12 +152,12 @@ const ProjectComponent = () => {
             </Swiper>
 
             <div className="text-purple-700 rounded-md flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base">
-              
+
               <div className="text-purple-700 rounded-md flex flex-col sm:fl  ex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base ">
-              <p className="text-center sm:text-left mt-3">
-                <strong>React.js</strong> | <strong>Node</strong> | <strong>MongoDB</strong> | <strong>RESTful API</strong> | <strong>Deployment</strong>
-              </p>
-            </div>
+                <p className="text-center sm:text-left mt-3">
+                  <strong>React.js</strong> | <strong>Node</strong> | <strong>MongoDB</strong> | <strong>RESTful API</strong> | <strong>Deployment</strong>
+                </p>
+              </div>
             </div>
           </>
         ) : (
@@ -157,10 +165,10 @@ const ProjectComponent = () => {
             <div className="text-gray-800 space-y-6 relative px-2 sm:px-6 lg:px-10">
               <h3 className="text-xl font-semibold mt-4 sm:mt-6">Overview:</h3>
               <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-               Built with Node, MongoDB, React.js, and Tailwind CSS | Secure Pharmacy Management with Real-Time Order Tracking & Live Chat
+                Built with Node, MongoDB, React.js, and Tailwind CSS | Secure Pharmacy Management with Real-Time Order Tracking & Live Chat
               </p>
               <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-              Developed a full-featured multi-store pharmacy management platform enabling customers to browse and order medicines from multiple stores, while allowing store owners to manage inventory, sales, and orders efficiently.
+                Developed a full-featured multi-store pharmacy management platform enabling customers to browse and order medicines from multiple stores, while allowing store owners to manage inventory, sales, and orders efficiently.
               </p>
 
               <h3 className="text-xl font-semibold mt-4 sm:mt-6">Authentication & Security:</h3>
@@ -178,17 +186,17 @@ const ProjectComponent = () => {
                 <li>Live One-to-One Chat: Enabled real-time chat between customers and store owners for inquiries and support using WebSockets.</li>
                 <li> Order Tracking: Customers can track order status using unique order numbers</li>
                 <li> Responsive UI: Designed a seamless, modern interface using React.js and Tailwind CSS.</li>
- 
+
               </ul>
 
-             <h3 className="text-xl font-semibold mt-4 sm:mt-6">  My Contributions:</h3>
+              <h3 className="text-xl font-semibold mt-4 sm:mt-6">  My Contributions:</h3>
               <ul className="list-inside list-[circle] space-y-1 ml-5 text-xs sm:text-sm md:text-base">
                 <li>Developed multi-store functionality with secure, role-based authentication.</li>
                 <li>Implemented real-time order tracking and automated inventory updates.</li>
                 <li>Designed and built a responsive, user-friendly frontend with React.js.</li>
                 <li> Integrated live chat for seamless customer-store communication.</li>
-             
- 
+
+
               </ul>
 
               <div className="mt-4">
@@ -313,10 +321,11 @@ const ProjectComponent = () => {
         )}
       </div>
 
+      {/* Project 3 */}
 
       <div className="bg-white py-10 px-5 rounded-xl shadow-lg max-w-5xl mx-auto my-10 border border-gray-200 relative">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-black">
-          Academic adfds fdsaf Management Portal
+          LedgerPro – Admin-User Finance & Product Tracker
         </h2>
 
         {!showDetailsProject3 ? (
@@ -330,7 +339,7 @@ const ProjectComponent = () => {
               onClick={() => openProjectDetails(3)}
               className="rounded-xl overflow-hidden mb-3 cursor-pointer relative max-h-[300px] sm:max-h-[200px] md:max-h-[300px] lg:max-h-[400px]"
             >
-              {images2.map((src, idx) => (
+              {images3.map((src, idx) => (
                 <SwiperSlide key={idx} className="relative">
                   <img
                     src={src}
@@ -353,53 +362,119 @@ const ProjectComponent = () => {
             <div className="text-gray-800 space-y-6 relative px-2 sm:px-6 lg:px-10 text-xs sm:text-sm md:text-base">
               <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Overview:</h3>
               <p className="leading-relaxed">
-                afasfa  Developed a secure, role-based Academic Management System using React.js, Laravel, and MySQL with Laravel Sanctum for authentication. The system integrates RESTful APIs for efficient data exchange and scalability.
+                LedgerPro is a responsive finance and product tracking system designed with a clear separation between Admin and User roles. It enables real-time monitoring of financial data, user and product management, and structured communication through a request system. The system includes two primary modules.
               </p>
 
-              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">fasf Key Features:</h3>
-              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Authentication & Security:</h3>
-              <ul className="list-inside list-[circle] space-y-1 ml-5">
-                <li>Implemented JWT-based authentication for secure user sessions.</li>
-                <li>Applied input validation, form sanitization, and prepared statements to prevent SQL injection and XSS attacks.</li>
-                <li>Enforced role-based access control (RBAC) to restrict unauthorized access.</li>
-              </ul>
-
-              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6"> fdasfa Dual Dashboard System:</h3>
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6"> Key Features:</h3>
               <ul className="list-inside list-disc ml-5 space-y-2">
                 <li>
-                  <span className="font-semibold">Student Dashboard:</span>
+                  <span className="font-semibold">Admin Panel</span>
+                </li>
+                <li>
+                  <span className="font-semibold">User Panel</span>
+                </li>
+                <li>
+                  <span className="font-semibold">PayPal payment</span>
+                </li>
+                <li>
+                  <span className="font-semibold">Deployed using Hostinger</span>
+                </li>
+                <li>
+                  <span className="font-semibold">Built with a mobile-first, fully responsive design</span>
+                </li>
+              </ul>
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Admin Panel Features</h3>
+
+              <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>
+                  <span className="font-semibold">Dashboard:</span>
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
-                    <li>Attendance Management: Mark and track attendance.</li>
-                    <li>Leave Requests: Submit and monitor approval status.</li>
-                    <li>Profile Management: Update personal details.</li>
-                    <li>Notifications: Receive important updates.</li>
+                    <li>View total amount received (paid) and remaining balance.</li>
+                    <li>Analyze financial trends via daily, weekly, and monthly breakdowns using charts or tables</li>
                   </ul>
                 </li>
                 <li>
-                  <span className="font-semibold">Admin Dashboard:</span>
+                  <span className="font-semibold">User Management:</span>
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
-                    <li>User & Attendance Management: Monitor and update student records.</li>
-                    <li>Leave Handling: Approve or reject leave requests.</li>
-                    <li>Role-Based Access Control (RBAC): Securely manage user roles.</li>
-                    <li>Performance Reports: Generate attendance-based grading reports.</li>
-                    <li>Profile Management: Update profile picture and personal details.</li>
-                    <li>Data Filtering: View attendance and grading data filtered by date range and student ID.</li>
+                    <li>Add, assign, and manage users and their associated projects.</li>
+                    <li>View and update user profile and financial records.</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">Financial Management:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>View detailed financial data per user</li>
+                    <li>Accept or reject user-submitted</li>
+                    <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                      <li>Payment updates.</li>
+                      <li>Product addition requests.</li>
+                    </ul>
+                    <li>	Manually update payment and balance records.</li>
+                   
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">Reports & History:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>Access full transaction and activity logs.</li>
+                    <li>Generate downloadable PDF reports filtered by date range or product type.</li>             
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">Application Settings:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>Enable Dark Mode and personalize visual preferences.</li>                   
                   </ul>
                 </li>
               </ul>
+ 
+   <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">User Panel Features</h3>
+ <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>
+                  <span className="font-semibold">Dashboard:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>View total amount, paid amount, and remaining balance</li>
+                    <li>Access complete payment history</li>
+                  </ul>
+                </li>
+               
+                <li>
+                  <span className="font-semibold">Request System:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                
+                    <li>	Send requests to Admin for:</li>
+                    <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                      <li>Adding new products.</li>
+                      <li>o	Updating payment details.</li>
+                    </ul>
+                
+                   
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">. Profile Management</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>Profile Management</li>
+                           
+                  </ul>
+                </li>
+               
+              </ul>
+
 
               <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6 font-bold">Impact</h3>
               <ul className="list-inside list-[circle] space-y-1 ml-5">
-                <li>Update student data, manage users, and oversee platform operations.</li>
-                <li>Approve or reject leave requests.</li>
-                <li>View attendance and grading data filtered by date range and student ID.</li>
-                <li>Update own profile information including name, email, and password.</li>
+                <li>Streamlined financial management by centralizing payment tracking for both users and admins.</li>
+                <li>Improved transparency and accountability through a full audit trail of financial transactions and user activity</li>
+                <li>Empowered users to manage their own data and initiate requests while keeping Admins in control of approvals</li>
+                <li>Boosted operational efficiency with quick access to downloadable reports, visual dashboards, and real-time updates.</li>
+                <li>Enhanced user experience through a responsive, mobile-first interface and personalized visual settings.</li>
               </ul>
 
               <div className="mt-4">
                 <span className="text-sm font-semibold text-black font-bold">Technologies used:</span>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  {["React.js", "Redux", "Postman", "HTML5", "CSS3", "REST API", "Git"].map((tech) => (
+                  {["Payment integrates", "Hostinger", "Postman", "Charts", "Tailwind", "Log History", "@react-pdf/renderer"].map((tech) => (
                     <span
                       key={tech}
                       className="flex-1 px-2 py-1 rounded text-xs sm:text-sm text-white bg-purple-600 text-center whitespace-nowrap"
