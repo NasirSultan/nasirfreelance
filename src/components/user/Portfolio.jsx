@@ -353,7 +353,7 @@ const ProjectComponent = () => {
 
             <div className="text-purple-700 rounded-md flex flex-col sm:fl  ex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base ">
               <p className="text-center sm:text-left mt-3">
-                <strong>React.js</strong> | <strong>Laravel</strong> | <strong>MySQL</strong> | <strong>RESTful API</strong> | <strong>Deployment</strong>
+                <strong>React.js</strong> | <strong>Node</strong> | <strong>MongoDB</strong> | <strong>RESTful APi</strong> 
               </p>
             </div>
           </>
