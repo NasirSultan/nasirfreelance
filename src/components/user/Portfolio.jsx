@@ -561,23 +561,23 @@ const ProjectComponent = () => {
 
               <h3 className="text-xl font-semibold mt-4 sm:mt-6"> Key Features:</h3>
               <ul className="list-inside list-[circle] space-y-1 ml-5 text-xs sm:text-sm md:text-base">
-               <li>Music Upload & Categorization: Users can upload songs with titles and assign categories for organized browsing.</li>
-          <li>In-Browser Audio Streaming: Integrated audio player for seamless music playback without downloads.</li>
-          <li>Song Management: List view of uploaded songs with options to play or delete.</li>
-          <li>RESTful Backend API: Laravel-powered API for secure file operations (upload, retrieve, delete).</li>
-          <li>Responsive Design: Mobile-first layout ensuring smooth experience across devices using Tailwind CSS.</li>
-       
+                <li>Music Upload & Categorization: Users can upload songs with titles and assign categories for organized browsing.</li>
+                <li>In-Browser Audio Streaming: Integrated audio player for seamless music playback without downloads.</li>
+                <li>Song Management: List view of uploaded songs with options to play or delete.</li>
+                <li>RESTful Backend API: Laravel-powered API for secure file operations (upload, retrieve, delete).</li>
+                <li>Responsive Design: Mobile-first layout ensuring smooth experience across devices using Tailwind CSS.</li>
+
 
               </ul>
 
               <h3 className="text-xl font-semibold mt-4 sm:mt-6"> Future Enhancements:</h3>
               <ul className="list-inside list-[circle] space-y-1 ml-5 text-xs sm:text-sm md:text-base">
-                 <li>User authentication and role-based access (user/admin).</li>
-          <li>Advanced search and filtering for easier song discovery.</li>
-          <li>Like and favorite system for enhanced user engagement.</li>
-          <li>Admin dashboard to monitor content and manage users.</li>
-          <li>Public/private sharing options for uploaded content.</li>
-          <li>Music file download with configurable permission settings.</li>
+                <li>User authentication and role-based access (user/admin).</li>
+                <li>Advanced search and filtering for easier song discovery.</li>
+                <li>Like and favorite system for enhanced user engagement.</li>
+                <li>Admin dashboard to monitor content and manage users.</li>
+                <li>Public/private sharing options for uploaded content.</li>
+                <li>Music file download with configurable permission settings.</li>
               </ul>
 
 
@@ -586,9 +586,9 @@ const ProjectComponent = () => {
               <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">My Contributions:</h3>
               <ul className="list-inside list-disc ml-5 space-y-2">
                 <li>Designed and implemented the full-stack architecture using Vue3 and Laravel.</li>
-          <li>Developed secure API endpoints for audio file management.</li>
-          <li>Built responsive, user-friendly frontend with integrated audio player.</li>
-          <li>Established a scalable foundation for future feature enhancements.</li>
+                <li>Developed secure API endpoints for audio file management.</li>
+                <li>Built responsive, user-friendly frontend with integrated audio player.</li>
+                <li>Established a scalable foundation for future feature enhancements.</li>
 
               </ul>
 
