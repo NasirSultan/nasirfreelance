@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import Screenshot1 from "./Screenshot (283).png";
 import Screenshot2 from "./Screenshot (284).png";
 import Screenshot3 from "./Screenshot (285).png";
@@ -37,12 +36,14 @@ const ProjectComponent = () => {
   const [showDetailsProject1, setShowDetailsProject1] = useState(false);
   const [showDetailsProject2, setShowDetailsProject2] = useState(false);
   const [showDetailsProject3, setShowDetailsProject3] = useState(false);
+  const [showDetailsProject4, setShowDetailsProject4] = useState(false);
   const [showMessage, setShowMessage] = useState(true);
   // Combined close handler to reset all details views
   const closeAllDetails = () => {
     setShowDetailsProject1(false);
     setShowDetailsProject2(false);
     setShowDetailsProject3(false);
+    setShowDetailsProject4(false);
 
   };
 
@@ -58,6 +59,11 @@ const ProjectComponent = () => {
       setShowDetailsProject3(true);
       setShowDetailsProject1(false);
       setShowDetailsProject2(false);
+    } else if (projectNumber === 4) {
+      setShowDetailsProject4(true);
+      setShowDetailsProject1(false);
+      setShowDetailsProject2(false);
+      setShowDetailsProject3(false);
     }
   };
 
@@ -65,7 +71,7 @@ const ProjectComponent = () => {
 
   const images2 = [Screenshot1, Screenshot2, Screenshot3];
   const images1 = [Screenshot4, Screenshot5, Screenshot6];
-    const images3 = [Screenshot7, Screenshot8, Screenshot9,Screenshot10, Screenshot11];
+  const images3 = [Screenshot7, Screenshot8, Screenshot9, Screenshot10, Screenshot11];
   useEffect(() => {
 
     const initialTimeout = setTimeout(() => setShowMessage(false), 4000);
@@ -353,7 +359,7 @@ const ProjectComponent = () => {
 
             <div className="text-purple-700 rounded-md flex flex-col sm:fl  ex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base ">
               <p className="text-center sm:text-left mt-3">
-                <strong>React.js</strong> | <strong>Node</strong> | <strong>MongoDB</strong> | <strong>RESTful APi</strong> 
+                <strong>React.js</strong> | <strong>Node</strong> | <strong>MongoDB</strong> | <strong>RESTful APi</strong>
               </p>
             </div>
           </>
@@ -410,26 +416,26 @@ const ProjectComponent = () => {
                       <li>Product addition requests.</li>
                     </ul>
                     <li>	Manually update payment and balance records.</li>
-                   
+
                   </ul>
                 </li>
                 <li>
                   <span className="font-semibold">Reports & History:</span>
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
                     <li>Access full transaction and activity logs.</li>
-                    <li>Generate downloadable PDF reports filtered by date range or product type.</li>             
+                    <li>Generate downloadable PDF reports filtered by date range or product type.</li>
                   </ul>
                 </li>
                 <li>
                   <span className="font-semibold">Application Settings:</span>
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
-                    <li>Enable Dark Mode and personalize visual preferences.</li>                   
+                    <li>Enable Dark Mode and personalize visual preferences.</li>
                   </ul>
                 </li>
               </ul>
- 
-   <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">User Panel Features</h3>
- <ul className="list-inside list-disc ml-5 space-y-2">
+
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">User Panel Features</h3>
+              <ul className="list-inside list-disc ml-5 space-y-2">
                 <li>
                   <span className="font-semibold">Dashboard:</span>
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
@@ -437,28 +443,28 @@ const ProjectComponent = () => {
                     <li>Access complete payment history</li>
                   </ul>
                 </li>
-               
+
                 <li>
                   <span className="font-semibold">Request System:</span>
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
-                
+
                     <li>	Send requests to Admin for:</li>
                     <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
                       <li>Adding new products.</li>
                       <li>o	Updating payment details.</li>
                     </ul>
-                
-                   
+
+
                   </ul>
                 </li>
                 <li>
                   <span className="font-semibold">. Profile Management</span>
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
                     <li>Profile Management</li>
-                           
+
                   </ul>
                 </li>
-               
+
               </ul>
 
 
@@ -490,6 +496,178 @@ const ProjectComponent = () => {
           </>
         )}
       </div>
+
+      {/* Project 4 */}
+
+      <div className="bg-white py-10 px-5 rounded-xl shadow-lg max-w-5xl mx-auto my-10 border border-gray-200 relative">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-black">
+          – Admin-User Finance & Product Tracker
+        </h2>
+
+        {!showDetailsProject4 ? (
+          <>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+              loop
+              onClick={() => openProjectDetails(4)}
+              className="rounded-xl overflow-hidden mb-3 cursor-pointer relative max-h-[300px] sm:max-h-[200px] md:max-h-[300px] lg:max-h-[400px]"
+            >
+              {images3.map((src, idx) => (
+                <SwiperSlide key={idx} className="relative">
+                  <img
+                    src={src}
+                    alt={`Slide ${idx + 1}`}
+                    className="w-full h-full object-cover rounded-xl"
+                    loading="lazy"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="text-purple-700 rounded-md flex flex-col sm:fl  ex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base ">
+              <p className="text-center sm:text-left mt-3">
+                <strong>React.js</strong> | <strong>Node</strong> | <strong>MongoDB</strong> | <strong>RESTful APi</strong>
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="text-gray-800 space-y-6 relative px-2 sm:px-6 lg:px-10 text-xs sm:text-sm md:text-base">
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Overview:</h3>
+              <p className="leading-relaxed">
+            gerhrhh    LedgerPro is a responsive finance and product tracking system designed with a clear separation between Admin and User roles. It enables real-time monitoring of financial data, user and product management, and structured communication through a request system. The system includes two primary modules.
+              </p>
+
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6"> Key Features:</h3>
+              <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>
+                  <span className="font-semibold">Admin Panel</span>
+                </li>
+                <li>
+                  <span className="font-semibold">User Panel</span>
+                </li>
+                <li>
+                  <span className="font-semibold">PayPal payment</span>
+                </li>
+                <li>
+                  <span className="font-semibold">Deployed using Hostinger</span>
+                </li>
+                <li>
+                  <span className="font-semibold">Built with a mobile-first, fully responsive design</span>
+                </li>
+              </ul>
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Admin Panel Features</h3>
+
+              <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>
+                  <span className="font-semibold">Dashboard:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>View total amount received (paid) and remaining balance.</li>
+                    <li>Analyze financial trends via daily, weekly, and monthly breakdowns using charts or tables</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">User Management:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>Add, assign, and manage users and their associated projects.</li>
+                    <li>View and update user profile and financial records.</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">Financial Management:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>View detailed financial data per user</li>
+                    <li>Accept or reject user-submitted</li>
+                    <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                      <li>Payment updates.</li>
+                      <li>Product addition requests.</li>
+                    </ul>
+                    <li>	Manually update payment and balance records.</li>
+
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">Reports & History:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>Access full transaction and activity logs.</li>
+                    <li>Generate downloadable PDF reports filtered by date range or product type.</li>
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">Application Settings:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>Enable Dark Mode and personalize visual preferences.</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">User Panel Features</h3>
+              <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>
+                  <span className="font-semibold">Dashboard:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>View total amount, paid amount, and remaining balance</li>
+                    <li>Access complete payment history</li>
+                  </ul>
+                </li>
+
+                <li>
+                  <span className="font-semibold">Request System:</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+
+                    <li>	Send requests to Admin for:</li>
+                    <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                      <li>Adding new products.</li>
+                      <li>o	Updating payment details.</li>
+                    </ul>
+
+
+                  </ul>
+                </li>
+                <li>
+                  <span className="font-semibold">. Profile Management</span>
+                  <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                    <li>Profile Management</li>
+
+                  </ul>
+                </li>
+
+              </ul>
+
+
+              <h3 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6 font-bold">Impact</h3>
+              <ul className="list-inside list-[circle] space-y-1 ml-5">
+                <li>Streamlined financial management by centralizing payment tracking for both users and admins.</li>
+                <li>Improved transparency and accountability through a full audit trail of financial transactions and user activity</li>
+                <li>Empowered users to manage their own data and initiate requests while keeping Admins in control of approvals</li>
+                <li>Boosted operational efficiency with quick access to downloadable reports, visual dashboards, and real-time updates.</li>
+                <li>Enhanced user experience through a responsive, mobile-first interface and personalized visual settings.</li>
+              </ul>
+
+              <div className="mt-4">
+                <span className="text-sm font-semibold text-black font-bold">Technologies used:</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {["Payment integrates", "Hostinger", "Postman", "Charts", "Tailwind", "Log History", "@react-pdf/renderer"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="flex-1 px-2 py-1 rounded text-xs sm:text-sm text-white bg-purple-600 text-center whitespace-nowrap"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <BackButton onClick={closeAllDetails} />
+          </>
+        )}
+      </div>
+
+
     </>
   );
 };
