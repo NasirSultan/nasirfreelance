@@ -2,12 +2,23 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 import {
-  FaLaptopCode,
+
   FaShieldAlt,
 
   FaEnvelope,
-  FaGlobe,
+  FaGlobe, FaLaptopCode,
+  FaCheckCircle,
+  FaMobileAlt,
+  FaServer,
+  FaCode,
+  FaWordpressSimple,
+  FaBug,
+  FaCloudUploadAlt,
+  FaGitAlt
 } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 const testimonials = [
   {
     name: 'Sarah K.',
@@ -60,6 +71,49 @@ const steps = [
 
 ];
 
+
+const services = [
+  {
+    icon: <FaCheckCircle className="text-green-600 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "Full-Stack Development",
+    desc: "MERN stack and Laravel for scalable, robust web applications.",
+  },
+  {
+    icon: <FaMobileAlt className="text-blue-600 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "Responsive Design",
+    desc: "Mobile-first websites and dashboards optimized for all devices.",
+  },
+  {
+    icon: <FaServer className="text-indigo-600 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "RESTful API Development",
+    desc: "Secure APIs using Node.js and Express.js.",
+  },
+  {
+    icon: <FaCode className="text-pink-600 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "Frontend Frameworks",
+    desc: "React.js, Vue.js 3, Tailwind CSS, Bootstrap.",
+  },
+  {
+    icon: <FaWordpressSimple className="text-blue-500 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "WordPress Development",
+    desc: "Custom themes and plugins as per client needs.",
+  },
+  {
+    icon: <FaBug className="text-red-500 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "Debugging & Optimization",
+    desc: "Bug fixing and performance enhancement.",
+  },
+  {
+    icon: <FaCloudUploadAlt className="text-yellow-500 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "Deployment & Hosting",
+    desc: "Hostinger, AWS, Docker containers.",
+  },
+  {
+    icon: <FaGitAlt className="text-orange-500 w-14 h-14 sm:w-16 sm:h-16" />,
+    title: "Version Control & CI/CD",
+    desc: "Git with GitHub Actions or GitLab CI.",
+  },
+];
 const FreelanceSection = () => {
   return (
     <div className="mx-auto sm:px-6 lg:px-8 py-12 sm:py-16 font-sans text-gray-900 md:w-4/5">
@@ -106,24 +160,40 @@ const FreelanceSection = () => {
 
         {/* Services list */}
         <section className="flex flex-col gap-8 sm:gap-10 md:gap-8 sm:p-8">
-          {/* Web & Software Development */}
-          <article className="rounded-3xl  md:p-8   transition-shadow duration-300 bg-white">
-            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
-              <FaLaptopCode className="text-purple-700 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex-shrink-0" />
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Web & Software Development</h2>
+          <article className="rounded-3xl p-6 sm:p-8 md:p-12 bg-white">
+            <div className="flex items-center gap-4 mb-8">
+              <FaLaptopCode className="text-purple-700 w-12 h-12 sm:w-14 sm:h-14" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                Web & Software Development
+              </h2>
             </div>
-            <ul className="list-disc list-inside space-y-2 sm:space-y-3 text-sm sm:text-base md:text-lg text-gray-700 px-2 sm:px-4 md:px-5">
-              <li><strong>Full-Stack Development:</strong> MERN stack and Laravel for scalable, robust web applications.</li>
-              <li><strong>Responsive Design:</strong> Mobile-first websites and dashboards optimized for all devices.</li>
-              <li><strong>RESTful API Development:</strong> Secure APIs using Node.js and Express.js.</li>
-              <li><strong>Frontend Frameworks:</strong> React.js, Vue.js 3, Tailwind CSS, Bootstrap.</li>
-              <li><strong>WordPress Development:</strong> Custom themes and plugins as per client needs.</li>
-              <li><strong>Debugging & Optimization:</strong> Bug fixing and performance enhancement.</li>
-              <li><strong>Deployment & Hosting:</strong> Hostinger, AWS, Docker containers.</li>
-              <li><strong>Version Control & CI/CD:</strong> Git with GitHub Actions or GitLab CI.</li>
-            </ul>
-          </article>
 
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={30}
+              loop={true}
+              autoplay={{ delay: 2500, disableOnInteraction: false }}
+              breakpoints={{
+                0: { slidesPerView: 1 },          // Mobile
+                640: { slidesPerView: 2 },        // Tablet
+                1024: { slidesPerView: 3 },       // Desktop
+              }}
+            >
+              {services.map((item, i) => (
+                <SwiperSlide key={i}>
+                  <div className="flex flex-col items-center px-6 py-8 sm:px-8 sm:py-10 rounded-3xl  h-full text-center min-h-[320px]">
+                    {item.icon}
+                    <h3 className="text-xl sm:text-xl font-bold mt-6">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-700 text-base sm:text-lg mt-4">
+                      {item.desc}
+                    </p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </article>
           {/* Cybersecurity Services */}
           <article className="rounded-3xl  md:p-8  transition-shadow duration-300 bg-white">
             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
