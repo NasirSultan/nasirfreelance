@@ -314,7 +314,7 @@ const FreelanceSection = () => {
         <h1 className="text-3xl pb-6 gap-5 sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center">What Clients Say</h1>
         <div className="grid md:grid-cols-3 ">
           {testimonials.map(({ name, role, quote }, i) => (
-            <div key={i} className="bg-purple-300 p-4 rounded-2xl text-white shadow-inner md:my-8 my-1">
+            <div key={i} className="bg-purple-300 p-4 rounded-2xl text-white shadow-inner md:my-8 my-1 md:mx-1">
               <p className="mb-2 italic text-purple-900">"{quote}"</p>
               <p className="font-semibold text-lg">{name}</p>
               <p className="text-sm text-black">{role}</p>
