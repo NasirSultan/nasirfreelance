@@ -13,7 +13,7 @@ import Screenshot6 from "./Screenshot (468).png";
 
 
 import Screenshot7 from "./Screenshot (677).png";
-import Screenshot8 from "./Screenshot (678).png";
+import Screenshot8 from "./Screenshot (679).png";
 import Screenshot9 from "./Screenshot (679).png";
 import Screenshot10 from "./Screenshot (680).png";
 import Screenshot11 from "./Screenshot (681).png";
