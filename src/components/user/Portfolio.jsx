@@ -20,6 +20,12 @@ import Screenshot11 from "./Screenshot (681).png";
 import Screenshot12 from "./Screenshot (569).png";
 import Screenshot13 from "./Screenshot (570).png";
 import Screenshot14 from "./Screenshot (571).png";
+import Screenshot15 from "./Screenshot 501.png";
+import Screenshot16 from "./Screenshot 502.png";
+import Screenshot17 from "./Screenshot 503.png";
+import Screenshot18 from "./Screenshot 504.png";
+import Screenshot19 from "./Screenshot 505.png";
+import Screenshot20 from "./Screenshot 506.png";
 
 // Reusable BackButton component
 const BackButton = ({ onClick }) => (
@@ -40,6 +46,7 @@ const ProjectComponent = () => {
   const [showDetailsProject2, setShowDetailsProject2] = useState(false);
   const [showDetailsProject3, setShowDetailsProject3] = useState(false);
   const [showDetailsProject4, setShowDetailsProject4] = useState(false);
+  const [showDetailsProject5, setShowDetailsProject5] = useState(false);
   const [showMessage, setShowMessage] = useState(true);
   // Combined close handler to reset all details views
   const closeAllDetails = () => {
@@ -47,7 +54,7 @@ const ProjectComponent = () => {
     setShowDetailsProject2(false);
     setShowDetailsProject3(false);
     setShowDetailsProject4(false);
-
+    setShowDetailsProject5(false);
   };
 
   // Open specific project detail and hide others
@@ -67,6 +74,12 @@ const ProjectComponent = () => {
       setShowDetailsProject1(false);
       setShowDetailsProject2(false);
       setShowDetailsProject3(false);
+    } else if (projectNumber === 5) {
+      setShowDetailsProject5(true);
+      setShowDetailsProject1(false);
+      setShowDetailsProject2(false);
+      setShowDetailsProject3(false);
+      setShowDetailsProject4(false);
     }
   };
 
@@ -76,6 +89,8 @@ const ProjectComponent = () => {
   const images2 = [Screenshot1, Screenshot2, Screenshot3];
   const images1 = [Screenshot4, Screenshot5, Screenshot6];
   const images3 = [Screenshot7, Screenshot8, Screenshot9, Screenshot10, Screenshot11];
+  const images5 = [Screenshot15, Screenshot16, Screenshot17, Screenshot18, Screenshot19, Screenshot20];
+
   useEffect(() => {
 
     const initialTimeout = setTimeout(() => setShowMessage(false), 4000);
@@ -596,6 +611,125 @@ const ProjectComponent = () => {
                 <span className="text-sm font-semibold text-black font-bold">Technologies used:</span>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {["audio_player", "file_handling", "Postman", "Auth", "Tailwind", "Log History", "Sanctum Package"].map((tech) => (
+                    <span
+                      key={tech}
+                      className="flex-1 px-2 py-1 rounded text-xs sm:text-sm text-white bg-purple-600 text-center whitespace-nowrap"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <BackButton onClick={closeAllDetails} />
+          </>
+        )}
+      </div>
+
+
+      {/* Project 5 */}
+
+      <div className="bg-white py-10 px-5 rounded-xl shadow-lg max-w-5xl mx-auto my-10 border border-gray-200 relative">
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-black">
+          WalletWise
+        </h2>
+
+        {!showDetailsProject5 ? (
+          <>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+              loop
+              onClick={() => openProjectDetails(5)}
+              className="rounded-xl overflow-hidden mb-3 cursor-pointer relative max-h-[300px] sm:max-h-[200px] md:max-h-[300px] lg:max-h-[400px]"
+            >
+              {images5.map((src, idx) => (
+                <SwiperSlide key={idx} className="relative">
+                  <img
+                    src={src}
+                    alt={`Slide ${idx + 1}`}
+                    className="w-full h-full object-cover rounded-xl"
+                    loading="lazy"
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            <div className="text-purple-700 rounded-md flex flex-col sm:fl  ex-row justify-center items-center gap-3 sm:gap-6 font-semibold px-2 sm:px-0 text-xs sm:text-base ">
+              <p className="text-center sm:text-left mt-3">
+                <strong>React.js</strong> | <strong>Node Express, </strong> | <strong>MongoDB</strong> | <strong>RESTful APi</strong>
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="text-gray-800 space-y-6 relative px-2 sm:px-6 lg:px-10 text-xs sm:text-sm md:text-base">
+              <h3 className="text-xl font-semibold mt-4 sm:mt-6">Overview:</h3>
+             <p className="leading-relaxed">
+  <strong>Record Wallet</strong> is a secure, mobile-first, multilingual wallet management system built using the MERN stack. Designed with a strong focus on user accessibility and administrative control, it enables admins to manage user wallets, record financial transactions, and track detailed histories. The interface is fully responsive and localized for English and Urdu, making it user-friendly across devices and demographics.
+</p>
+
+<p className="leading-relaxed mt-4">
+  <strong>Deployment:</strong> The frontend is deployed on <strong>Vercel</strong>, the backend is hosted on <strong>Render</strong>.
+</p>
+
+             
+              <h3 className="text-xl font-semibold mt-4 sm:mt-6"> Key Features</h3>
+              <h2 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6"> User Management:</h2>
+              <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>Add users with basic details like name, email, and phone number.</li>
+                <li>Track and manage each user’s wallet balance in real-time.</li>
+              </ul>
+
+ <h2 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6"> Transaction Recording:</h2>
+              <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>Admins can manually record "Sent" or "Received" transactions.</li>
+                <li>Each transaction logs the sender, receiver, amount, transaction type, custom message, and timestamp.</li>
+              </ul>
+
+
+ <h2 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6"> History & Filtering:</h2>
+              <ul className="list-inside list-disc ml-5 space-y-2">
+                <li>View the complete transaction history for each user.</li>
+                <li>Filter records by transaction per user and date range.</li>
+                  <li>can create PDF</li>
+              </ul>
+
+
+<h2 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Localization Support:</h2>
+<ul className="list-inside list-disc ml-5 space-y-2">
+  <li>Built using react-i18next.</li>
+  <li>Toggle seamlessly between English and Urdu for broader accessibility.</li>
+</ul>
+
+<h2 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Integrated Calculator:</h2>
+<ul className="list-inside list-disc ml-5 space-y-2">
+  <li>Perform quick financial calculations inside the app.</li>
+  <li>Option to insert calculated results directly into transaction fields.</li>
+</ul>
+
+<h2 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Authentication:</h2>
+<ul className="list-inside list-disc ml-5 space-y-2">
+  <li>Secure admin login using JWT-based authentication.</li>
+  <li>All routes are protected for authorized access only.</li>
+</ul>
+
+<h2 className="text-sm sm:text-base md:text-lg font-semibold mt-4 sm:mt-6">Mobile-First Design:</h2>
+<ul className="list-inside list-disc ml-5 space-y-2">
+  <li>Fully responsive UI built with Tailwind CSS.</li>
+  <li>Optimized for usability across phones, tablets, and desktops.</li>
+</ul>
+
+
+
+
+              <div className="mt-4">
+                <span className="text-sm font-semibold text-black font-bold">Technologies used:</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {["react-i18next", "Render", "Postman", "Auth", "PDF Export Utility", "Log History", "Calculator "].map((tech) => (
                     <span
                       key={tech}
                       className="flex-1 px-2 py-1 rounded text-xs sm:text-sm text-white bg-purple-600 text-center whitespace-nowrap"
