@@ -190,11 +190,11 @@ const FreelanceSection = () => {
   return (
     <div className="mx-auto sm:px-6 lg:px-8 py-12 sm:py-16 font-sans text-gray-900 md:w-4/5">
       {/* Header */}
-      <header className="text-center max-w-4xl mx-auto mb-16 sm:mb-20">
+      <header className="text-center max-w-4xl mx-auto m-10 sm:mb-20">
         <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
           Freelance Full Stack & Cybersecurity Expert
         </h1>
-        <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-xl mx-auto">
+        <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-xl mx-auto my-12">
           Delivering cutting-edge web development and top-notch security to
           protect your digital assets.
         </p>
@@ -219,90 +219,89 @@ const FreelanceSection = () => {
       </header>
 
       {/* Services */}
-   <section className="max-w-7xl mx-auto mb-16 sm:mb-20 p-4 sm:px-0 shadow-xl rounded-3xl bg-white">
+    <section className="max-w-7xl mx-auto mb-20 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 shadow-xl rounded-3xl bg-white">
 
-        {/* Subdiv for header */}
-        <div className="p-6 sm:p-8 border-gray-200">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center">
-            Services
-          </h1>
-          <p className="mt-8 text-base sm:text-lg md:text-xl text-gray-600 max-w-6xl mx-auto text-center">
-            I offer a wide range of freelance development services, including full stack apps, cybersecurity, DevOps, and ongoing support.
-          </p>
-        </div>
+  {/* Header */}
+  <div className="mb-12 text-center px-4 sm:px-6 lg:px-8">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900">
+      Services
+    </h1>
+    <p className="mt-6 text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto">
+      I offer a wide range of freelance development services, including full stack apps, cybersecurity, DevOps, and ongoing support.
+    </p>
+  </div>
 
-        {/* Services list */}
-        <section className="flex flex-col gap-8 sm:gap-10 md:gap-8 sm:p-8">
-          <article className="rounded-3xl  sm:p-8 md:px-12 bg-white">
-            <div className="flex items-center gap-2 mb-4">
-              <FaLaptopCode className="text-purple-700 w-12 h-12 sm:w-14 sm:h-14" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                Web & Software Development
-              </h2>
+  {/* Services */}
+  <section className="flex flex-col gap-12 sm:gap-14 lg:gap-16">
+
+    {/* Web Development */}
+    <article className="bg-white rounded-3xl p-6 sm:p-8 md:px-12 lg:px-16">
+      <div className="flex items-center gap-3 sm:gap-4 mb-6">
+        <FaLaptopCode className="text-purple-700 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14" />
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+          Web & Software Development
+        </h2>
+      </div>
+
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={30}
+        loop={true}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+      >
+        {services.map((item, i) => (
+          <SwiperSlide key={i}>
+            <div className="flex flex-col items-center justify-center text-center bg-gray-50 hover:bg-white transition p-6 sm:p-8 lg:p-10 rounded-2xl h-full min-h-[300px]">
+              {item.icon}
+              <h3 className="text-xl sm:text-2xl font-semibold mt-5">{item.title}</h3>
+              <p className="text-gray-700 text-base sm:text-lg lg:text-xl mt-3">{item.desc}</p>
             </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </article>
 
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              loop={true}
-              autoplay={{ delay: 2500, disableOnInteraction: false }}
-              breakpoints={{
-                0: { slidesPerView: 1 },          // Mobile
-                640: { slidesPerView: 2 },        // Tablet
-                1024: { slidesPerView: 3 },       // Desktop
-              }}
-            >
-              {services.map((item, i) => (
-                <SwiperSlide key={i}>
-                  <div className="flex flex-col items-center px-2 py-3 sm:px-8 sm:py-10 rounded-3xl  h-full text-center min-h-[320px]">
-                    {item.icon}
-                    <h3 className="text-xl sm:text-xl font-bold mt-6">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-700 text-base sm:text-lg mt-4">
-                      {item.desc}
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </article>
-          {/* Cybersecurity Services */}
-          <article className="rounded-3xl md:p-8 transition-shadow duration-300 bg-white">
-            <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5 md:mb-6">
-              <FaShieldAlt className="text-purple-700 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex-shrink-0" />
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Cybersecurity & Website Protection</h2>
+    {/* Cybersecurity */}
+    <article className="bg-white rounded-3xl p-6 sm:p-8 md:px-12 lg:px-16">
+      <div className="flex items-center gap-3 sm:gap-4 mb-6">
+        <FaShieldAlt className="text-purple-700 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex-shrink-0" />
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+          Cybersecurity & Website Protection
+        </h2>
+      </div>
+
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={30}
+        loop={true}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+      >
+        {cybersecurityServices.map((item, i) => (
+          <SwiperSlide key={i}>
+            <div className="flex flex-col items-center justify-center text-center bg-gray-50 hover:bg-white transition p-6 sm:p-8 lg:p-10 rounded-2xl h-full min-h-[300px]">
+              {item.icon}
+              <h3 className="text-xl sm:text-2xl font-semibold mt-5">{item.title}</h3>
+              <p className="text-gray-700 text-base sm:text-lg lg:text-xl mt-3">{item.desc}</p>
             </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </article>
 
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={30}
-              loop={true}
-              autoplay={{ delay: 2500, disableOnInteraction: false }}
-              breakpoints={{
-                0: { slidesPerView: 1 },          // Mobile
-                640: { slidesPerView: 2 },        // Tablet
-                1024: { slidesPerView: 3 },       // Desktop
-              }}
-            >
-              {cybersecurityServices.map((item, i) => (
-                <SwiperSlide key={i}>
-                  <div className="flex flex-col items-center px-6 py-8 sm:px-8 sm:py-10 rounded-3xl  h-full text-center min-h-[320px]">
-                    {item.icon}
-                    <h3 className="text-xl sm:text-xl font-bold mt-6">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-700 text-base sm:text-lg mt-4">
-                      {item.desc}
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </article>
+  </section>
+</section>
 
-        </section>
-      </section>
+
 
 
 
@@ -312,10 +311,10 @@ const FreelanceSection = () => {
 
 
       <section className="py-10 px-6 max-w-7xl mx-auto text-black ">
-        <h1 className="text-3xl pb-6 sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center">What Clients Say</h1>
-        <div className="grid md:grid-cols-3 gap-5">
+        <h1 className="text-3xl pb-6 gap-5 sm:text-4xl md:text-5xl font-extrabold text-gray-900 text-center">What Clients Say</h1>
+        <div className="grid md:grid-cols-3 ">
           {testimonials.map(({ name, role, quote }, i) => (
-            <div key={i} className="bg-purple-300 p-4 rounded-2xl text-white shadow-inner my-8">
+            <div key={i} className="bg-purple-300 p-4 rounded-2xl text-white shadow-inner md:my-8 my-1">
               <p className="mb-2 italic text-purple-900">"{quote}"</p>
               <p className="font-semibold text-lg">{name}</p>
               <p className="text-sm text-black">{role}</p>
@@ -366,12 +365,12 @@ const FreelanceSection = () => {
         <FaEnvelope className="mx-auto mb-4 sm:mb-6 text-purple-700 w-10 h-10 sm:w-14 sm:h-14" />
         <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Get in Touch</h2>
         <p className="text-base sm:text-lg text-purple-900 m-8">
-         
+
           <a href="mailto:ahmad@gmail.com" className="underline">
             ahmad@gmail.com
           </a>
         </p>
-  
+
         <Link
           to="/Contact"
           className="flex items-center justify-center gap-2 bg-purple-700 hover:bg-purple-800 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold shadow-lg transition duration-300 md:w-1/2 mx-auto"
@@ -387,19 +386,19 @@ const FreelanceSection = () => {
         <h2 className="text-3xl sm:text-4xl mb-6 md:text-5xl font-extrabold text-gray-900 text-center">Why Work With Me?</h2>
 
 
-<ul className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-base sm:text-lg text-gray-800  m-10">
-  {[
-    "Expertise in Full Stack Development & Cybersecurity",
-    "Development of scalable, secure, and modern applications",
-    "Clear, consistent communication and on-time delivery",
-    "Commitment to confidentiality, ethics, and quality"
-  ].map((text, index) => (
-    <li key={index} className="flex items-start gap-2">
-      <FaCheckCircle className="text-green-600 mt-[5px] md:mt-[6px]" />
-      <span>{text}</span>
-    </li>
-  ))}
-</ul>
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-base sm:text-lg text-gray-800  m-10">
+          {[
+            "Expertise in Full Stack Development & Cybersecurity",
+            "Development of scalable, secure, and modern applications",
+            "Clear, consistent communication and on-time delivery",
+            "Commitment to confidentiality, ethics, and quality"
+          ].map((text, index) => (
+            <li key={index} className="flex items-start gap-2">
+              <FaCheckCircle className="text-green-600 mt-[5px] md:mt-[6px]" />
+              <span>{text}</span>
+            </li>
+          ))}
+        </ul>
 
       </section>
     </div>
