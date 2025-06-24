@@ -8,6 +8,7 @@ import markdownContent3 from './Texttt.md?raw';
 import markdownContent4 from './Stream.md?raw';
 import markdownContent5 from './WebSocket.md?raw';
 import markdownContent6 from './Googlelogin.md?raw';
+import markdownContent7 from './Dom.md?raw';
 import { Info, Search, Code, BookOpen } from 'lucide-react';
 
 export default function MarkdownDisplay() {
@@ -58,6 +59,12 @@ export default function MarkdownDisplay() {
   title: 'Googlelogin Auth',
   description: 'Easy Google Login in a MERN Stack App',
   markdown: markdownContent6,
+  Icon: BookOpen,
+},   {
+  key: 'seventh',
+  title: 'DOM Manipulation',
+  description: 'Understanding the Document Object Model (DOM) in JavaScript',
+  markdown: markdownContent7,
   Icon: BookOpen,
 },
   ];
