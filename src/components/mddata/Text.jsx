@@ -9,6 +9,7 @@ import markdownContent4 from './Stream.md?raw';
 import markdownContent5 from './WebSocket.md?raw';
 import markdownContent6 from './Googlelogin.md?raw';
 import markdownContent7 from './Dom.md?raw';
+import markdownContent8 from './LangChain.md?raw';
 import { Info, Search, Code, BookOpen } from 'lucide-react';
 
 export default function MarkdownDisplay() {
@@ -65,6 +66,13 @@ export default function MarkdownDisplay() {
   title: 'DOM Manipulation',
   description: 'Understanding the Document Object Model (DOM) in JavaScript',
   markdown: markdownContent7,
+  Icon: BookOpen,
+},
+  {
+  key: 'nineth',
+  title: 'LangChain JS Tutorial',
+  description: 'Comprehensive Guide to LangChain in JavaScript using Gemini',
+  markdown: markdownContent8,
   Icon: BookOpen,
 },
   ];
