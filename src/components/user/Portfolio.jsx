@@ -134,12 +134,13 @@ const ProjectComponent = () => {
 
 
       {showMessage && (
-        <div className="fixed right-2 sm:right-4 md:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 
-  bg-purple-400 rounded-3xl p-2 
-  text-xs sm:text-xs md:text-[11px] lg:text-[10px] 
-  text-purple-800 font-semibold z-50">
-          Click on pic for explanation
-        </div>
+      <div className="fixed right-2 sm:right-4 md:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 
+  bg-purple-700 rounded-3xl p-3 sm:p-4 
+  text-sm sm:text-base md:text-[15px] lg:text-[25px] 
+  text-white font-semibold z-50 text-center leading-snug shadow-lg">
+  Tap the image<br className="sm:hidden" /> for details
+</div>
+
 
       )}
 
@@ -148,19 +149,25 @@ const ProjectComponent = () => {
       <>
 
         <div className="w-full flex justify-center px-4">
-          <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] text-center">
-            <h2 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
-              Welcome to my Project Highlights
-            </h2>
+        <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] text-center">
+  <h2 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
+    Welcome to My Project Highlights
+  </h2>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
-              My projects involve real-world functionality such as user authentication, data visualization, payment processing, RESTful APIs, and integration with third-party services. I enjoy solving problems through clean architecture, reusable components, and efficient database design.
-            </p>
+  <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
+    I build intelligent full-stack applications that combine the power of modern web technologies with AI-driven logic. My work leverages <strong>LangChain</strong> and <strong>LangGraph</strong> to create autonomous agents and structured workflows capable of dynamic decision-making and task execution.
+  </p>
 
-            <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
-              In parallel, I'm diving deeper into Cybersecurity—learning secure development practices, identifying vulnerabilities like XSS, SQL Injection, CSRF, and implementing strategies to protect data and infrastructure. My goal is to build applications that are not only functional but also secure and resilient.
-            </p>
-          </div>
+  <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
+    These systems are backed by secure authentication, clean API design, payment integrations, real-time data handling, and reusable components—architected for scalability and maintainability across diverse use cases.
+  </p>
+
+  <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
+    I'm also advancing in <strong>Cybersecurity</strong>, focusing on secure development practices and threat prevention. I actively identify and mitigate vulnerabilities such as XSS, SQL Injection, and CSRF to ensure the safety and resilience of every application I build.
+  </p>
+</div>
+
+
         </div>
 
       </>

@@ -25,7 +25,7 @@ export default function Homepage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const el = entry.target.querySelector('#project-count');
-            countUp(el, 7);
+            countUp(el, 10);
             obs.unobserve(entry.target);
           }
         });
@@ -53,15 +53,25 @@ export default function Homepage() {
         </div>
 
         {/* Left aligned welcome text */}
-        <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 text-left">
-          <p className="mb-4">
-            Building robust full-stack applications, crafting seamless user experiences, sharing technical insights through in-depth blogs and comprehensive documentation, and ensuring web applications are secure and protected against cyber attacks.
-          </p>
+      <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 text-left">
+  
+<p className="mb-4">
+  My background in <strong>electronics</strong> and <strong>programming</strong>, strengthened by a hands-on final year project, helps me approach development with a systems mindset—bridging hardware logic with real-world software solutions.
+</p>
 
-          <p>
-            Whether you’re seeking a dedicated freelancer, exploring my portfolio, or diving into practical development articles, you’re in the right place. Let’s embark on a journey where cutting-edge technology meets creativity, and knowledge drives innovation.
-          </p>
-        </div>
+  
+  <p className="mb-4">
+    I specialize in building intelligent full-stack applications that combine modern web technologies with AI-powered logic. My work leverages <strong>AI agents</strong>, <strong>LangChain</strong>, and <strong>LangGraph</strong> to create dynamic, decision-based systems capable of executing complex workflows. In parallel, I focus on crafting seamless user experiences and enforcing strong security practices—especially defending against critical threats like <strong>SQL Injection</strong>, XSS, and CSRF.
+  </p>
+
+ 
+
+  <p>
+    Whether you're here to explore my portfolio, collaborate on innovative solutions, or dive into practical development articles—you're in the right place. Let’s bridge creativity and technology through purposeful engineering and continuous learning.
+  </p>
+</div>
+
+
 
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-12">
@@ -111,7 +121,7 @@ export default function Homepage() {
               </svg>
             </div>
             <div>
-              <h3 className="text-4xl font-extrabold text-white">3+ Year</h3>
+              <h3 className="text-4xl font-extrabold text-white">6+ Month</h3>
               <p className="text-sm md:text-sm whitespace-nowrap text-purple-900 mt-1">Years of Experience</p>
             </div>
           </div>
