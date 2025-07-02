@@ -49,7 +49,7 @@ export default function Homepage() {
 
         {/* Left aligned name section */}
         <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 drop-shadow-lg text-purple-900 text-left">
-          Hi, I’m <span className="underline decoration-purple-400 font-semibold">Nasir Sultan</span> — a Freelance Full Stack Developer, Creative Writer, and Problem Solver.
+          Hi, I’m <span className="underline decoration-purple-400 font-semibold">Nasir Sultan</span> — a Freelance Full Stack Developer, Researcher, and Problem Solver.
         </div>
 
         {/* Left aligned welcome text */}
