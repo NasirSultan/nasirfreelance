@@ -2,19 +2,21 @@ import React from "react";
 
 const ExperienceSection = () => {
     return (
-        <section className="max-w-4xl mx-auto p-6">
+        <section className=" md:w-[83%] mx-auto p-6">
             <h2 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
-                Full Stack & Generative AI Development
+                Experience
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
-                I specialize in building full-stack, AI-powered web applications that leverage the latest advancements in Generative AI. From dynamic frontend interfaces to scalable backend systems, my work spans the entire development lifecycle with a focus on performance, usability, and intelligent automation.
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
-                Using technologies like LangChain, LangGraph, and Gemini/GPT, I've developed intelligent agents that streamline workflows, personalize user experiences, and automate tasks with real-time reasoning. These integrations have significantly improved system efficiency and reduced manual effort.
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed">
-                I'm also exploring the intersection of full-stack development and cybersecurity — implementing secure authentication, enforcing HTTPS and CORS policies, and mitigating vulnerabilities to build resilient applications.
-            </p>
+          <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
+  I build full-stack web applications with a focus on performance, usability, and automation across the entire development lifecycle.
+</p>
+
+<p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
+  My work includes AI-powered features that enhance user experience, streamline workflows, and reduce manual tasks through intelligent automation.
+</p>
+
+<p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed">
+  I also follow secure development practices to ensure reliability, protection, and resilience in every application I build.
+</p>
 
 
             <div className="mb-10">

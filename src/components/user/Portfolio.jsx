@@ -14,7 +14,7 @@ import Screenshot6 from "./Screenshot (468).png";
 
 import Screenshot7 from "./Screenshot (677).png";
 import Screenshot8 from "./Screenshot (679).png";
-import Screenshot9 from "./Screenshot (679).png";
+
 import Screenshot10 from "./Screenshot (680).png";
 import Screenshot11 from "./Screenshot (681).png";
 import Screenshot12 from "./Screenshot (569).png";
@@ -35,6 +35,9 @@ import Screenshot24 from "./Screenshot (720).png";
 import Screenshot25 from "./Screenshot (722).png";
 import Screenshot26 from "./Screenshot (715).png";
 
+import Screenshot29 from "./Screenshot (726).png";
+import Screenshot28 from "./Screenshot (724).png";
+import Screenshot27 from "./Screenshot (723).png";
 
 
 
@@ -108,7 +111,7 @@ const ProjectComponent = () => {
   const images4 = [Screenshot12, Screenshot13, Screenshot14];
   const images2 = [Screenshot1, Screenshot2, Screenshot3];
   const images1 = [Screenshot4, Screenshot5, Screenshot6];
-  const images3 = [Screenshot7, Screenshot8, Screenshot9, Screenshot10, Screenshot11];
+  const images3 = [Screenshot7, Screenshot8, Screenshot27, Screenshot28, Screenshot29, Screenshot10, Screenshot11];
   const images5 = [Screenshot15, Screenshot16, Screenshot17, Screenshot18, Screenshot19, Screenshot20];
   const images6 = [Screenshot21, Screenshot22, Screenshot23, Screenshot24, Screenshot25, Screenshot26];
   useEffect(() => {
@@ -134,12 +137,12 @@ const ProjectComponent = () => {
 
 
       {showMessage && (
-      <div className="fixed right-2 sm:right-4 md:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 
+        <div className="fixed right-2 sm:right-4 md:right-6 lg:right-8 top-1/2 transform -translate-y-1/2 
   bg-purple-700 rounded-3xl p-3 sm:p-4 
   text-sm sm:text-base md:text-[15px] lg:text-[25px] 
   text-white font-semibold z-50 text-center leading-snug shadow-lg">
-  Tap the image<br className="sm:hidden" /> for details
-</div>
+          Tap the image<br className="sm:hidden" /> for details
+        </div>
 
 
       )}
@@ -148,27 +151,28 @@ const ProjectComponent = () => {
 
       <>
 
-        <div className="w-full flex justify-center px-4">
-        <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] text-center">
-  <h2 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
-    Welcome to My Project Highlights
+     <div className="w-full md:w-[80%] px-4 md:px-1 max-w-5xl mx-auto  my-4  text-start">
+  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
+    Projects
   </h2>
 
-  <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
-    I build intelligent full-stack applications that combine the power of modern web technologies with AI-driven logic. My work leverages <strong>LangChain</strong> and <strong>LangGraph</strong> to create autonomous agents and structured workflows capable of dynamic decision-making and task execution.
+  <p className="text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed mb-2">
+    I build robust <strong>full-stack web applications</strong> with secure architecture, clean APIs, and real-time capabilities.
   </p>
 
-  <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
-    These systems are backed by secure authentication, clean API design, payment integrations, real-time data handling, and reusable components—architected for scalability and maintainability across diverse use cases.
+  <p className="text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed mb-2">
+    I also specialize in developing <strong>AI-powered full-stack apps</strong> using <strong>LangChain</strong> and <strong>LangGraph</strong>—leveraging <strong>generative AI</strong> to create intelligent agents and automated, decision-driven workflows.
   </p>
 
-  <p className="text-sm sm:text-base md:text-lg text-gray-900 leading-relaxed mb-2">
-    I'm also advancing in <strong>Cybersecurity</strong>, focusing on secure development practices and threat prevention. I actively identify and mitigate vulnerabilities such as XSS, SQL Injection, and CSRF to ensure the safety and resilience of every application I build.
+  <p className="text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed mb-2">
+    I'm also advancing in <strong>Cybersecurity</strong>, ensuring protection against common threats like XSS, SQL Injection, and CSRF.
+  </p>
+
+  <p className="text-sm sm:text-base md:text-lg text-gray-800 leading-relaxed mb-2">
+    My projects clearly demonstrate these capabilities through dynamic features, smart logic, and scalable infrastructure.
   </p>
 </div>
 
-
-        </div>
 
       </>
 
@@ -845,11 +849,11 @@ const ProjectComponent = () => {
                   <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
                     <li>Suggestions: AI-generated resume improvement advice based on field-specific ATS expectations.</li>
                     <li>Resume Builder: Produces a fully improved resume with</li>
-                     <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
-                    <li>Polished formatting and structure.</li>
-                    <li>Strong ATS-aligned keywords</li>
-                     <li>Professionally rewritten content</li>
-                  </ul>
+                    <ul className="list-inside list-[circle] ml-5 mt-1 space-y-1">
+                      <li>Polished formatting and structure.</li>
+                      <li>Strong ATS-aligned keywords</li>
+                      <li>Professionally rewritten content</li>
+                    </ul>
                   </ul>
                 </li>
               </ul>

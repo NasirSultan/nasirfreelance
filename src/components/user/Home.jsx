@@ -38,10 +38,10 @@ export default function Homepage() {
     }
   }, []);
   return (
-    <main className="text-black flex flex-col items-center justify-center px-6 py-20   ">
+    <main className="text-black flex flex-col items-center justify-center px-6 py-10   ">
 
       {/* Welcome Section */}
-    <section className="w-full md:w-[75%] lg:w-[75%] space-y-8">
+    <section className="w-full md:w-[83%] space-y-8">
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-lg ">
           Welcome to My Space
