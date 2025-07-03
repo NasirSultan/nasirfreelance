@@ -1,9 +1,11 @@
 // src/components/Homepage.jsx
-import React from "react"
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+
 export default function Homepage() {
   const projectRef = useRef(null);
+
   useEffect(() => {
     const countUp = (element, target, duration = 1400) => {
       let start = 0;
@@ -24,7 +26,7 @@ export default function Homepage() {
       (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const el = entry.target.querySelector('#project-count');
+            const el = entry.target.querySelector("#project-count");
             countUp(el, 10);
             obs.unobserve(entry.target);
           }
@@ -37,42 +39,54 @@ export default function Homepage() {
       observer.observe(projectRef.current);
     }
   }, []);
+
   return (
-    <main className="text-black flex flex-col items-center justify-center px-6 py-10   ">
+    <main className="text-black flex flex-col items-center justify-center px-6 py-10">
+      {/* SEO Tags */}
+      <Helmet>
+        <title>Nasir Sultan | Freelance Full Stack & Generative AI Developer</title>
+        <meta
+          name="description"
+          content="Nasir Sultan is a Freelance Full Stack & Generative AI Developer specializing in building intelligent web apps with React, Node.js, LangChain, LangGraph, and AI agents."
+        />
+        <meta
+          name="keywords"
+          content="Nasir Sultan, Full Stack Developer, AI Developer, React.js, Node.js, LangChain, LangGraph, Gemini AI, Freelance Developer"
+        />
+        <link rel="canonical" href="https://nasirfreelance.vercel.app/" />
+        <meta property="og:title" content="Nasir Sultan | Freelance Full Stack & AI Developer" />
+        <meta
+          property="og:description"
+          content="Explore projects and experience by Nasir Sultan, expert in AI-powered full stack development and secure web applications."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nasirfreelance.vercel.app/" />
+      </Helmet>
 
       {/* Welcome Section */}
-    <section className="w-full md:w-[83%] space-y-8">
-
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-lg ">
+      <section className="w-full md:w-[83%] space-y-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-lg">
           Welcome to My Space
         </h1>
 
-        {/* Left aligned name section */}
         <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 drop-shadow-lg text-purple-900 text-left">
-          Hi, I’m <span className="underline decoration-purple-400 font-semibold">Nasir Sultan</span> — a Freelance Full Stack & Generative AI Developer, Researcher, and Problem Solver.
+          Hi, I’m{" "}
+          <span className="underline decoration-purple-400 font-semibold">Nasir Sultan</span> — a Freelance Full Stack & Generative AI Developer, Researcher, and Problem Solver.
         </div>
 
-        {/* Left aligned welcome text */}
-      <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 text-left">
-  
-<p className="mb-4">
-  My background in <strong>electronics</strong> and <strong>programming</strong>, strengthened by a hands-on final year project, helps me approach development with a systems mindset—bridging hardware logic with real-world software solutions.
-</p>
+        <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 text-left">
+          <p className="mb-4">
+            My background in <strong>electronics</strong> and <strong>programming</strong>, strengthened by a hands-on final year project, helps me approach development with a systems mindset—bridging hardware logic with real-world software solutions.
+          </p>
 
-  
-  <p className="mb-4">
-    I specialize in building intelligent full-stack applications that combine modern web technologies with AI-powered logic. My work leverages <strong>AI agents</strong>, <strong>LangChain</strong>, and <strong>LangGraph</strong> to create dynamic, decision-based systems capable of executing complex workflows. In parallel, I focus on crafting seamless user experiences and enforcing strong security practices—especially defending against critical threats like <strong>SQL Injection</strong>, XSS, and CSRF.
-  </p>
+          <p className="mb-4">
+            I specialize in building intelligent full-stack applications that combine modern web technologies with AI-powered logic. My work leverages <strong>AI agents</strong>, <strong>LangChain</strong>, and <strong>LangGraph</strong> to create dynamic, decision-based systems capable of executing complex workflows. In parallel, I focus on crafting seamless user experiences and enforcing strong security practices—especially defending against critical threats like <strong>SQL Injection</strong>, XSS, and CSRF.
+          </p>
 
- 
-
-  <p>
-    Whether you're here to explore my portfolio, collaborate on innovative solutions, or dive into practical development articles—you're in the right place. Let’s bridge creativity and technology through purposeful engineering and continuous learning.
-  </p>
-</div>
-
-
-
+          <p>
+            Whether you're here to explore my portfolio, collaborate on innovative solutions, or dive into practical development articles—you're in the right place. Let’s bridge creativity and technology through purposeful engineering and continuous learning.
+          </p>
+        </div>
 
         <div className="flex flex-col md:flex-row justify-center items-center gap-12">
           {/* Projects Completed */}
@@ -81,11 +95,7 @@ export default function Homepage() {
             ref={projectRef}
           >
             <div className="text-green-900">
-              <svg
-                className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6"
-                fill="currentColor"
-                viewBox="0 0 384 512"
-              >
+              <svg className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6" fill="currentColor" viewBox="0 0 384 512">
                 <path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 
           26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 
           40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm121.2 
@@ -103,11 +113,7 @@ export default function Homepage() {
           {/* Years of Experience */}
           <div className="flex items-center bg-purple-300 rounded-2xl shadow-xl p-6 md:p-5 w-full md:w-1/2 max-w-md">
             <div className="text-black-900">
-              <svg
-                className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 
@@ -121,16 +127,13 @@ export default function Homepage() {
               </svg>
             </div>
             <div>
-              <h3 className="text-4xl font-extrabold text-white">6+ Month</h3>
-              <p className="text-sm md:text-sm whitespace-nowrap text-purple-900 mt-1">Years of Experience</p>
+              <h3 className="text-4xl font-extrabold text-white whitespace-nowrap">6+ </h3>
+              <p className="text-sm md:text-sm whitespace-nowrap text-purple-900 mt-1">Months of Experience</p>
             </div>
           </div>
         </div>
 
-
         <div className="flex flex-col md:flex-row gap-4 max-w-xl mx-auto mt-6 justify-center">
-
-
           <Link
             to="/contact"
             className="w-full md:w-auto lg:w-64 bg-white text-purple-700 font-semibold px-8 py-4 rounded-lg shadow-xl hover:bg-purple-100 transition text-center text-sm md:text-base"
@@ -146,8 +149,6 @@ export default function Homepage() {
           >
             Experience
           </Link>
-          
-
         </div>
       </section>
     </main>

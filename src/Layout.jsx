@@ -1,31 +1,40 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
-  Home,
-  Briefcase,
-  Handshake,
-  FileText,
-  User,
+  LayoutDashboard,
+  Sparkles,
+  FolderKanban,
+  Gem,
+  FileCode2,
+  UserCircle2,
   ChevronUp,
-  ChevronDown,
-  Bot
+  ChevronDown
 } from 'lucide-react'
 
 const Layout = ({ children }) => {
   const location = useLocation()
+  const [loading, setLoading] = useState(true)
   const [showButton, setShowButton] = useState(false)
   const [scrollDirection, setScrollDirection] = useState(null)
   const [isInputFocused, setIsInputFocused] = useState(false)
 
+  // Navigation Items
   const navItems = [
-    { to: '/', label: 'Home', icon: <Home size={20} /> },
-    { to: '/Ai', label: 'AI Assistant', icon: <Bot size={20} /> },
-    { to: '/Portfolio', label: 'Portfolio', icon: <Briefcase size={20} /> },
-    { to: '/Freelance', label: 'Freelancing', icon: <Handshake size={20} /> },
-    { to: '/Article', label: 'Articles', icon: <FileText size={20} /> },
-    { to: '/profile', label: 'Profile', icon: <User size={20} /> },
+    { to: '/', label: 'Home', icon: <LayoutDashboard size={20} /> },
+
+    { to: '/Portfolio', label: 'Portfolio', icon: <FolderKanban size={20} /> },
+    { to: '/Freelance', label: 'Freelancing', icon: <Gem size={20} /> },
+    { to: '/Article', label: 'Articles', icon: <FileCode2 size={20} /> },
+    { to: '/profile', label: 'Profile', icon: <UserCircle2 size={20} /> },
   ]
 
+  // Loader simulation
+  useEffect(() => {
+    const timeout = setTimeout(() => setLoading(false), 1000)
+    return () => clearTimeout(timeout)
+  }, [])
+
+  // Scroll Button logic
   useEffect(() => {
     const checkScroll = () => {
       const scrollY = window.scrollY
@@ -35,10 +44,7 @@ const Layout = ({ children }) => {
       const canScroll = docHeight > windowHeight
       setShowButton(canScroll)
 
-      if (!canScroll) {
-        setScrollDirection(null)
-        return
-      }
+      if (!canScroll) return setScrollDirection(null)
 
       if (scrollY > 10 && scrollY < docHeight - windowHeight - 10) {
         setScrollDirection('down')
@@ -59,6 +65,7 @@ const Layout = ({ children }) => {
     }
   }, [])
 
+  // Input focus tracking
   useEffect(() => {
     const handleFocusIn = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
@@ -89,17 +96,37 @@ const Layout = ({ children }) => {
     }
   }
 
+  // Loader UI
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-700">
+  <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-700 px-4 text-center">
+  <div className="animate-pulse font-semibold 
+                  text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+    Thanks for your patience...
+  </div>
+  <div className="mt-2 animate-pulse font-medium text-black
+                  text-xl sm:text-lg md:text-base lg:text-sm">
+    This may take a moment due to free version limitations.
+  </div>
+</div>
+
+</div>
+
+    )
+  }
+
   return (
     <div className="relative h-screen flex flex-col">
-      {/* Top Navigation Bar (Desktop Only) */}
+      {/* Top Navbar (Desktop) */}
       <div className="hidden md:flex fixed top-0 left-0 right-0 items-center justify-between px-6 py-4 border-b border-gray-200 bg-white shadow-md z-10">
-        <h1 className="text-2xl font-bold">Freelancing</h1>
+        <h1 className="text-2xl font-bold text-purple-700">Freelancing</h1>
         <div className="flex gap-6">
           {navItems.map(({ to, label, icon }) => (
             <Link
               key={to}
               to={to}
-              className={`flex items-center gap-2 ${
+              className={`flex items-center gap-2 hover:text-purple-600 transition ${
                 location.pathname === to
                   ? 'text-purple-600 font-semibold'
                   : 'text-gray-700'
@@ -112,14 +139,14 @@ const Layout = ({ children }) => {
         </div>
       </div>
 
-      {/* Bottom Navigation Bar (Mobile Only) */}
+      {/* Bottom Navbar (Mobile) */}
       {!isInputFocused && (
         <nav className="flex md:hidden fixed bottom-0 left-0 right-0 justify-around items-center border-t border-gray-300 bg-white py-2 shadow-inner z-10">
           {navItems.map(({ to, icon, label }) => (
             <Link
               key={to}
               to={to}
-              className={`flex flex-col items-center text-xs ${
+              className={`flex flex-col items-center text-xs hover:text-purple-600 transition ${
                 location.pathname === to
                   ? 'text-purple-600 font-semibold'
                   : 'text-gray-700'
@@ -143,7 +170,7 @@ const Layout = ({ children }) => {
         </button>
       )}
 
-      {/* Main Content */}
+      {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto px-4 py-4 mt-0 md:mt-[72px] mb-[56px] md:mb-0">
         {children}
       </main>

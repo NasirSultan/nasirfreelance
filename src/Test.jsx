@@ -1,163 +1,113 @@
-import React from 'react';
+import { useState } from "react";
 
-const services = [
-  {
-    title: 'Full Stack Development',
-    icon: '🧩',
-    description:
-      'End-to-end development of modern, scalable, and secure web applications tailored to your business needs.',
-    points: [
-      'Frontend with React, Next.js, Vue.js',
-      'Backend APIs using Node.js, Express, Laravel',
-      'MongoDB, MySQL, PostgreSQL integration',
-      'Authentication with JWT, OAuth, Firebase',
-      'Admin panels, analytics & dashboards',
-      'RESTful APIs & third-party integrations',
-      'CI/CD (Vercel, Netlify, Docker)',
-    ],
-  },
-  {
-    title: 'Cybersecurity & Secure Development',
-    icon: '🛡️',
-    description:
-      'Building secure systems from day one, applying best practices in web security and data protection.',
-    points: [
-      'Role-based access control (RBAC)',
-      'XSS, CSRF, SQL injection protection',
-      'HTTPS, SSL/TLS configuration',
-      'Security headers & CSP policies',
-      'OWASP Top 10 remediation',
-      'Logging, auditing & monitoring',
-      'GDPR & data privacy compliance',
-    ],
-  },
-];
+export default function UrlTextFetcher() {
+  const [url, setUrl] = useState("");
+  const [text, setText] = useState("");
+  const [html, setHtml] = useState("");
+  const [loading, setLoading] = useState(false);
 
-const tools = [
-  'React.js', 'Next.js', 'Vue.js', 'Tailwind CSS', 'Node.js',
-  'Express.js', 'Laravel', 'MongoDB', 'MySQL', 'JWT',
-  'Docker', 'Vercel', 'Netlify', 'Cloudflare', 'Git/GitHub',
-];
+  const fetchText = async () => {
+    if (!url.trim()) {
+      alert("Please enter a valid URL.");
+      return;
+    }
 
-const testimonials = [
-  {
-    name: 'Sarah M.',
-    feedback:
-      'A highly skilled developer! Delivered a full-stack dashboard with secure login, charts, and API connections. Will definitely hire again.',
-  },
-  {
-    name: 'Ahmed R.',
-    feedback:
-      'Impressed by the professionalism and attention to detail. Our web portal is secure, fast, and scalable. Great communication throughout!',
-  },
-];
+    setLoading(true);
+    setText("");
+    setHtml("");
 
-const projects = [
-  {
-    name: 'Secure Medical Platform',
-    description:
-      'Multi-store medical inventory and order management system with real-time tracking, role-based access, and JWT authentication.',
-  },
-  {
-    name: 'Academic Portal',
-    description:
-      'Full-featured academic platform with student/admin dashboards, grading, attendance, and secure backend using Laravel & MySQL.',
-  },
-];
+    try {
+      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+      console.log("⏳ Fetching from:", proxyUrl);
 
-const FreelancePage = () => {
+      const response = await fetch(proxyUrl);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const htmlContent = await response.text();
+      setHtml(htmlContent); // Save raw HTML
+      console.log("✅ HTML fetched. Length:", htmlContent.length);
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, "text/html");
+      const bodyText = doc.body?.innerText || "⚠️ No visible content found.";
+
+      setText(bodyText.slice(0, 10000));
+    } catch (error) {
+      console.error("❌ Error fetching text:", error);
+      setText("❌ Failed to fetch content. Site might block scraping or CORS.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen px-4 py-12 text-black dark:text-white font-sans">
-      <div className="max-w-7xl mx-auto">
+    <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+      <h2>🌐 URL Text Fetcher (Client Only)</h2>
 
-        {/* Header */}
-        <header className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold mb-4">Freelance Services</h1>
-          <p className="text-lg">Full Stack Development & Cybersecurity Consulting</p>
-        </header>
+      <input
+        type="text"
+        placeholder="Enter a full URL like https://example.com"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+        style={{
+          width: "100%",
+          padding: "10px",
+          marginBottom: "10px",
+          fontSize: "16px",
+        }}
+      />
 
-        {/* Services */}
-        <section className="grid md:grid-cols-2 gap-10 mb-20">
-          {services.map((service, idx) => (
-            <div
-              key={idx}
-              className="border border-gray-300 dark:border-gray-700 rounded-2xl p-6 shadow hover:shadow-lg transition"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="text-3xl">{service.icon}</div>
-                <h2 className="text-2xl font-semibold">{service.title}</h2>
-              </div>
-              <p className="mb-4">{service.description}</p>
-              <ul className="list-disc list-inside space-y-2">
-                {service.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+      <button
+        onClick={fetchText}
+        disabled={loading}
+        style={{
+          padding: "10px 20px",
+          fontSize: "16px",
+          backgroundColor: loading ? "#999" : "#007bff",
+          color: "#fff",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        {loading ? "⏳ Fetching..." : "🔍 Fetch Text"}
+      </button>
 
-        {/* Tools & Tech */}
-        <section className="mb-20 text-center">
-          <h2 className="text-3xl font-bold mb-6">Technologies & Tools</h2>
-          <div className="flex flex-wrap justify-center gap-3 text-sm">
-            {tools.map((tool, i) => (
-              <span
-                key={i}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-full"
-              >
-                {tool}
-              </span>
-            ))}
-          </div>
-        </section>
+      <div
+        style={{
+          whiteSpace: "pre-wrap",
+          backgroundColor: "#f0f0f0",
+          padding: "15px",
+          marginTop: "20px",
+          maxHeight: "300px",
+          overflowY: "auto",
+          border: "1px solid #ccc",
+          fontSize: "14px",
+          borderRadius: "6px",
+        }}
+      >
+        <strong>📝 Parsed Text Output:</strong>
+        <div>{loading ? "⏳ Loading..." : text || "📄 Nothing extracted"}</div>
+      </div>
 
-        {/* Projects */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-6 text-center">Project Highlights</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, i) => (
-              <div
-                key={i}
-                className="p-5 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition"
-              >
-                <h3 className="text-xl font-semibold mb-2">{project.name}</h3>
-                <p>{project.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="mb-20 text-center">
-          <h2 className="text-3xl font-bold mb-6">Client Testimonials</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md"
-              >
-                <p className="italic mb-4">"{t.feedback}"</p>
-                <h4 className="font-semibold text-lg">— {t.name}</h4>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="text-center mt-24">
-          <h3 className="text-2xl font-bold mb-3">Let’s Build Something Great</h3>
-          <p className="mb-6">Contact me to discuss your next project.</p>
-          <a
-            href="mailto:your-email@example.com"
-            className="inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-indigo-700 transition"
-          >
-            Contact Me
-          </a>
-        </section>
+      <div
+        style={{
+          whiteSpace: "pre-wrap",
+          backgroundColor: "#fffbe6",
+          padding: "15px",
+          marginTop: "20px",
+          maxHeight: "300px",
+          overflowY: "auto",
+          border: "1px solid #e0c97f",
+          fontSize: "12px",
+          borderRadius: "6px",
+        }}
+      >
+        <strong>🔍 Raw HTML Fetched:</strong>
+        <div>{html || "📦 HTML will appear here..."}</div>
       </div>
     </div>
   );
-};
-
-export default FreelancePage;
+}
