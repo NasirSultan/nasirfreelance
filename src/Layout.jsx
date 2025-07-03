@@ -99,18 +99,15 @@ const Layout = ({ children }) => {
   // Loader UI
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-700">
-  <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-700 px-4 text-center">
-  <div className="animate-pulse font-semibold 
-                  text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-    Thanks for your patience...
+<div className="flex flex-col items-center justify-center bg-white text-purple-700 w-full">
+  <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-700 px-4 text-center w-full">
+    <div className="animate-pulse font-semibold text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+      Thanks for your patience...
+    </div>
+    <div className="mt-2 animate-pulse font-medium text-black text-xl sm:text-lg md:text-base lg:text-sm">
+      This may take a moment due to free version 
+    </div>
   </div>
-  <div className="mt-2 animate-pulse font-medium text-black
-                  text-xl sm:text-lg md:text-base lg:text-sm">
-    This may take a moment due to free version limitations.
-  </div>
-</div>
-
 </div>
 
     )
