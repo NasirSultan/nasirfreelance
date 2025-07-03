@@ -65,7 +65,7 @@ export default function Homepage() {
         </h1>
 
         <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 drop-shadow-lg text-purple-900 text-left">
-          Hi, I’m <span className="underline decoration-purple-400 font-semibold">Nasir Sultan</span> — a Freelance Full Stack & agentive AI Developer, Researcher, and Problem Solver.
+          Hi, I’m <span className="underline decoration-purple-400 font-semibold">Nasir Sultan</span> — a Freelance Full Stack & Agentic AI Developer, Researcher, and Problem Solver.
         </div>
 
         <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 text-left">
