@@ -192,7 +192,7 @@ const FreelanceSection = () => {
       {/* Header */}
       <header className="text-center max-w-4xl mx-auto m-10 sm:mb-20">
         <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight mb-4 tracking-tight">
-          Freelance Full Stack & Cybersecurity Expert
+          Freelance Full Stack & Agentic Expert
         </h1>
         <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-xl mx-auto my-12">
           Delivering cutting-edge web development and top-notch security to
