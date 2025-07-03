@@ -1,24 +1,24 @@
 // src/components/Homepage.jsx
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "../Seo";
 
-
 export default function Homepage() {
   const projectRef = useRef(null);
+  const [projectCount, setProjectCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const countUp = (element, target, duration = 1400) => {
+    const countUp = (target, duration = 1400) => {
       let start = 0;
       const increment = target / (duration / 50);
-
       const interval = setInterval(() => {
         start += increment;
         if (start >= target) {
-          element.textContent = `${target}+`;
+          setProjectCount(target);
           clearInterval(interval);
         } else {
-          element.textContent = `${Math.floor(start)}+`;
+          setProjectCount(Math.floor(start));
         }
       }, 50);
     };
@@ -26,9 +26,9 @@ export default function Homepage() {
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target.querySelector("#project-count");
-            countUp(el, 10);
+          if (entry.isIntersecting && !hasAnimated) {
+            countUp(10);
+            setHasAnimated(true);
             obs.unobserve(entry.target);
           }
         });
@@ -39,7 +39,7 @@ export default function Homepage() {
     if (projectRef.current) {
       observer.observe(projectRef.current);
     }
-  }, []);
+  }, [hasAnimated]);
 
   return (
     <main className="text-black flex flex-col items-center justify-center px-6 py-10">
@@ -65,38 +65,20 @@ export default function Homepage() {
         </h1>
 
         <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 drop-shadow-lg text-purple-900 text-left">
-          Hi, I’m{" "}
-          <span className="underline decoration-purple-400 font-semibold">
-            Nasir Sultan
-          </span>{" "}
-          — a Freelance Full Stack & Generative AI Developer, Researcher, and Problem
-          Solver.
+          Hi, I’m <span className="underline decoration-purple-400 font-semibold">Nasir Sultan</span> — a Freelance Full Stack & agentive AI Developer, Researcher, and Problem Solver.
         </div>
 
         <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 text-left">
           <p className="mb-4">
-            My background in <strong>electronics</strong> and{" "}
-            <strong>programming</strong>, strengthened by a hands-on final year project,
-            helps me approach development with a systems mindset—bridging hardware logic
-            with real-world software solutions.
+            My background in <strong>electronics</strong> and <strong>programming</strong>, strengthened by a hands-on final year project, helps me approach development with a systems mindset—bridging hardware logic with real-world software solutions.
           </p>
 
           <p className="mb-4">
-            I specialize in building intelligent full-stack applications that combine
-            modern web technologies with AI-powered logic. My work leverages{" "}
-            <strong>AI agents</strong>, <strong>LangChain</strong>, and{" "}
-            <strong>LangGraph</strong> to create dynamic, decision-based systems capable
-            of executing complex workflows. In parallel, I focus on crafting seamless
-            user experiences and enforcing strong security practices—especially
-            defending against critical threats like <strong>SQL Injection</strong>, XSS,
-            and CSRF.
+            I specialize in building intelligent full-stack applications that combine modern web technologies with AI-powered logic. My work leverages <strong>AI agents</strong>, <strong>LangChain</strong>, and <strong>LangGraph</strong> to create dynamic, decision-based systems capable of executing complex workflows. In parallel, I focus on crafting seamless user experiences and enforcing strong security practices—especially defending against critical threats like <strong>SQL Injection</strong>, XSS, and CSRF.
           </p>
 
           <p>
-            Whether you're here to explore my portfolio, collaborate on innovative
-            solutions, or dive into practical development articles—you're in the right
-            place. Let’s bridge creativity and technology through purposeful
-            engineering and continuous learning.
+            Whether you're here to explore my portfolio, collaborate on innovative solutions, or dive into practical development articles—you're in the right place. Let’s bridge creativity and technology through purposeful engineering and continuous learning.
           </p>
         </div>
 
@@ -107,18 +89,12 @@ export default function Homepage() {
             ref={projectRef}
           >
             <div className="text-green-900">
-              <svg
-                className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6"
-                fill="currentColor"
-                viewBox="0 0 384 512"
-              >
+              <svg className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6" fill="currentColor" viewBox="0 0 384 512">
                 <path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM192 40c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm121.2 231.8l-143 141.8c-4.7 4.7-12.3 4.6-17-.1l-82.6-83.3c-4.7-4.7-4.6-12.3.1-17L99.1 285c4.7-4.7 12.3-4.6 17 .1l46 46.4 106-105.2c4.7-4.7 12.3-4.6 17 .1l28.2 28.4c4.7 4.8 4.6 12.3-.1 17z" />
               </svg>
             </div>
             <div>
-              <h3 id="project-count" className="text-4xl font-extrabold text-white">
-                0
-              </h3>
+              <h3 className="text-4xl font-extrabold text-white">{projectCount}+</h3>
               <p className="text-sm md:text-sm whitespace-nowrap text-purple-900 mt-1">
                 Projects Completed
               </p>
@@ -128,11 +104,7 @@ export default function Homepage() {
           {/* Years of Experience */}
           <div className="flex items-center bg-purple-300 rounded-2xl shadow-xl p-6 md:p-5 w-full md:w-1/2 max-w-md">
             <div className="text-black-900">
-              <svg
-                className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="w-20 md:w-24 h-20 md:h-24 mr-5 md:mr-6" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fillRule="evenodd"
                   d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
@@ -142,7 +114,7 @@ export default function Homepage() {
               </svg>
             </div>
             <div>
-              <h3 className="text-4xl font-extrabold text-white whitespace-nowrap">6+ </h3>
+              <h3 className="text-4xl font-extrabold text-white whitespace-nowrap">6+</h3>
               <p className="text-sm md:text-sm whitespace-nowrap text-purple-900 mt-1">
                 Months of Experience
               </p>
