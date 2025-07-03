@@ -195,7 +195,7 @@ const FreelanceSection = () => {
         Full Stack & AI Agentic Developer
         </h1>
         <p className="text-base sm:text-lg lg:text-xl text-gray-700 max-w-xl mx-auto my-12">
-          Delivering cutting-edge web development and top-notch security to
+          Delivering cutting-edge full web development and top-notch security to
           protect your digital assets.
         </p>
         <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">

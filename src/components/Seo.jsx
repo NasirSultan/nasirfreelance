@@ -56,6 +56,9 @@ export default function Seo({
     <>
       {/* Static fallback (for SSR/JSX rendering) */}
       <title>{title}</title>
+    <meta name="google-site-verification" content="e5179427455dc941" />
+
+
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={url} />
