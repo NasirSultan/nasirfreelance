@@ -78,19 +78,22 @@ export default function Homepage() {
         </div>
 
         {showMetrics && (
-          <div className="flex flex-col md:flex-row justify-center items-center gap-12">
-            <MetricCard
-              count={10}
-              label="Projects Completed"
-              innerRef={projectRef}
-              icon={IconProject}
-            />
-            <MetricCard
-              count={6}
-              label="Months of Experience"
-              icon={IconExperience}
-            />
-          </div>
+         <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+  <MetricCard
+    count={10}
+    label="Projects Completed"
+    innerRef={projectRef}
+    icon={IconProject}
+    // Darker background + white text for good contrast
+    className="bg-purple-800 text-white"
+  />
+  <MetricCard
+    count={6}
+    label="Months of Experience"
+    icon={IconExperience}
+    className="bg-purple-800 text-white"
+  />
+</div>
         )}
 
         <div className="flex flex-col md:flex-row gap-4 max-w-xl mx-auto mt-6 justify-center">
