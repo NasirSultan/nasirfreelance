@@ -113,7 +113,7 @@ export default function MarkdownDisplay() {
   return (
     <>
       {!visible && (
-      <div className="fixed left-1/2 top-[5.5rem] sm:top-[6rem] transform -translate-x-1/2 z-50 w-[90%] sm:w-full max-w-4xl max-h-[70vh] sm:max-h-[80vh] bg-white p-4 px-6 rounded-lg flex flex-col shadow-lg border border-purple-200 overflow-hidden">
+      <div className="fixed left-1/2 top-[5.5rem] sm:top-[6rem] transform -translate-x-1/2 z-50 w-[100%] sm:w-full max-w-4xl max-h-[80vh] sm:max-h-[80vh] p-4 px-6 rounded-lg flex flex-col  ">
   {/* Search Input */}
   <div className="relative flex-shrink-0">
     <input
