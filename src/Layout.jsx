@@ -21,7 +21,6 @@ const Layout = ({ children }) => {
   // Navigation Items
   const navItems = [
     { to: '/', label: 'Home', icon: <LayoutDashboard size={20} /> },
-
     { to: '/Portfolio', label: 'Portfolio', icon: <FolderKanban size={20} /> },
     { to: '/Freelance', label: 'Freelancing', icon: <Gem size={20} /> },
     { to: '/Article', label: 'Articles', icon: <FileCode2 size={20} /> },
@@ -33,6 +32,11 @@ const Layout = ({ children }) => {
     const timeout = setTimeout(() => setLoading(false), 1000)
     return () => clearTimeout(timeout)
   }, [])
+
+  // Ensure scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   // Scroll Button logic
   useEffect(() => {
@@ -99,22 +103,21 @@ const Layout = ({ children }) => {
   // Loader UI
   if (loading) {
     return (
-<div className="flex flex-col items-center justify-center bg-white text-purple-700 w-full">
-  <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-700 px-4 text-center w-full">
-    <div className="animate-pulse font-semibold text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-      Thanks for your patience...
-    </div>
-    <div className="mt-2 animate-pulse font-medium text-black text-xl sm:text-lg md:text-base lg:text-sm">
-      This may take a moment due to free version 
-    </div>
-  </div>
-</div>
-
+      <div className="flex flex-col items-center justify-center bg-white text-purple-700 w-full">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-white text-purple-700 px-4 text-center w-full">
+          <div className="animate-pulse font-semibold text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+            Thanks for your patience...
+          </div>
+          <div className="mt-2 animate-pulse font-medium text-black text-xl sm:text-lg md:text-base lg:text-sm">
+            This may take a moment due to free version
+          </div>
+        </div>
+      </div>
     )
   }
 
   return (
-    <div className="relative h-screen flex flex-col">
+    <div className="relative flex flex-col min-h-screen">
       {/* Top Navbar (Desktop) */}
       <div className="hidden md:flex fixed top-0 left-0 right-0 items-center justify-between px-6 py-4 border-b border-gray-200 bg-white shadow-md z-10">
         <h1 className="text-2xl font-bold text-purple-700">Freelancing</h1>
@@ -168,7 +171,7 @@ const Layout = ({ children }) => {
       )}
 
       {/* Main Content Area */}
-      <main className="flex-1 overflow-y-auto px-4 py-4 mt-0 md:mt-[72px] mb-[56px] md:mb-0">
+      <main className="flex-1 px-4 py-4 mt-0 md:mt-[72px] mb-[56px] md:mb-0">
         {children}
       </main>
     </div>
