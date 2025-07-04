@@ -30,8 +30,6 @@ const MetricCard = memo(({ icon: Icon, count, label, innerRef }) => (
 
 export default function Homepage() {
   const projectRef = useRef(null);
-  const [projectCount, setProjectCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const [showMetrics, setShowMetrics] = useState(false);
 
   useEffect(() => {
@@ -39,37 +37,6 @@ export default function Homepage() {
     if ("requestIdleCallback" in window) requestIdleCallback(delay);
     else setTimeout(delay, 1500);
   }, []);
-
-  useEffect(() => {
-    const countUp = (target, duration = 1000) => {
-      let start = 0;
-      const increment = target / (duration / 50);
-      const interval = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-          setProjectCount(target);
-          clearInterval(interval);
-        } else {
-          setProjectCount(Math.floor(start));
-        }
-      }, 50);
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry], obs) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          countUp(10);
-          setHasAnimated(true);
-          obs.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (projectRef.current) {
-      observer.observe(projectRef.current);
-    }
-  }, [hasAnimated]);
 
   return (
     <main className="text-black flex flex-col items-center justify-center px-6 py-10">
@@ -91,7 +58,7 @@ export default function Homepage() {
 
       <section className="w-full md:w-[83%] space-y-8">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-sm">
-          Welcome to My Space
+          Welcome to My Space d
         </h1>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-900 leading-snug tracking-tight font-sans">
@@ -113,7 +80,7 @@ export default function Homepage() {
         {showMetrics && (
           <div className="flex flex-col md:flex-row justify-center items-center gap-12">
             <MetricCard
-              count={projectCount}
+              count={10}
               label="Projects Completed"
               innerRef={projectRef}
               icon={IconProject}
