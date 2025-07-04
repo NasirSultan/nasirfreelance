@@ -113,43 +113,46 @@ export default function MarkdownDisplay() {
   return (
     <>
       {!visible && (
-        <div className="fixed left-1/2 top-20 transform -translate-x-1/2 z-50 w-full max-w-4xl max-h-[80vh] bg-white p-4 px-6 rounded-lg flex flex-col">
-          <div className="relative flex-shrink-0">
-            <input
-              type="text"
-              placeholder="Search articles..."
-              className="w-full pr-10 px-4 py-2 rounded-lg border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-700"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-700 pointer-events-none" size={20} />
-          </div>
+      <div className="fixed left-1/2 top-[5.5rem] transform -translate-x-1/2 z-50 w-full max-w-4xl max-h-[80vh] bg-white p-4 px-6 rounded-lg flex flex-col ">
+  {/* Search Input */}
+  <div className="relative flex-shrink-0">
+    <input
+      type="text"
+      placeholder="Search articles..."
+      className="w-full pr-10 px-4 py-2 rounded-lg border border-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-700"
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+    />
+    <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-700 pointer-events-none" size={20} />
+  </div>
 
-          <div className="flex-grow overflow-y-auto mt-4 space-y-4 hide-scrollbar">
-            {filteredArticles.length > 0 ? (
-              filteredArticles.map(({ key, title, description, Icon }) => (
-                <button
-                  key={key}
-                  onClick={() => {
-                    setCurrentContent(key);
-                    setVisible(true);
-                  }}
-                  className="w-full cursor-pointer h-24 bg-purple-800 text-white font-semibold px-2 sm:px-6 py-3 sm:py-4 rounded-lg shadow-lg hover:bg-purple-900 transition-colors flex items-center"
-                >
-                  <div className="w-1/4 flex justify-center">
-                    <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
-                  </div>
-                  <div className="w-3/4 flex flex-col items-start justify-center text-left pl-3 sm:pl-4">
-                    <h3 className="text-base sm:text-lg font-semibold truncate w-full">{title}</h3>
-                    <p className="text-xs sm:text-sm font-normal">{description}</p>
-                  </div>
-                </button>
-              ))
-            ) : (
-              <p className="text-center text-purple-700 mt-10 font-semibold">No articles match your search.</p>
-            )}
+  {/* Article List */}
+  <div className="flex-grow overflow-y-auto mt-4 space-y-4 hide-scrollbar">
+    {filteredArticles.length > 0 ? (
+      filteredArticles.map(({ key, title, description, Icon }) => (
+        <button
+          key={key}
+          onClick={() => {
+            setCurrentContent(key);
+            setVisible(true);
+          }}
+          className="w-full cursor-pointer h-24 bg-purple-800 text-white font-semibold px-2 sm:px-6 py-3 sm:py-4 rounded-lg shadow-md hover:bg-purple-900 transition-colors flex items-center"
+        >
+          <div className="w-1/4 flex justify-center">
+            <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
           </div>
-        </div>
+          <div className="w-3/4 flex flex-col items-start justify-center text-left pl-3 sm:pl-4">
+            <h3 className="text-base sm:text-lg font-semibold truncate w-full">{title}</h3>
+            <p className="text-xs sm:text-sm font-normal">{description}</p>
+          </div>
+        </button>
+      ))
+    ) : (
+      <p className="text-center text-purple-700 mt-10 font-semibold">No articles match your search.</p>
+    )}
+  </div>
+</div>
+
       )}
 
       <div className={`max-w-5xl mx-auto p-8 bg-gray-50 rounded-lg shadow-md text-gray-800 font-sans leading-relaxed sm:max-w-3xl sm:p-6 sm:text-base xs:max-w-full xs:p-4 xs:text-sm transition-all duration-300 ${visible ? 'block' : 'hidden'}`}>
