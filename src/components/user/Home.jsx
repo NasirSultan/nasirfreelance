@@ -58,7 +58,7 @@ export default function Homepage() {
 
       <section className="w-full md:w-[83%] space-y-8">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold drop-shadow-sm">
-          Welcome to My Space d
+          Welcome to My Space dd
         </h1>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-900 leading-snug tracking-tight font-sans">

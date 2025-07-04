@@ -113,7 +113,7 @@ export default function MarkdownDisplay() {
   return (
     <>
       {!visible && (
-      <div className="fixed left-1/2 top-[5.5rem] transform -translate-x-1/2 z-50 w-full max-w-4xl max-h-[80vh] bg-white p-4 px-6 rounded-lg flex flex-col ">
+      <div className="fixed left-1/2 top-[5.5rem] sm:top-[6rem] transform -translate-x-1/2 z-50 w-[90%] sm:w-full max-w-4xl max-h-[70vh] sm:max-h-[80vh] bg-white p-4 px-6 rounded-lg flex flex-col shadow-lg border border-purple-200 overflow-hidden">
   {/* Search Input */}
   <div className="relative flex-shrink-0">
     <input
@@ -126,7 +126,7 @@ export default function MarkdownDisplay() {
     <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-purple-700 pointer-events-none" size={20} />
   </div>
 
-  {/* Article List */}
+  {/* Scrollable Article List */}
   <div className="flex-grow overflow-y-auto mt-4 space-y-4 hide-scrollbar">
     {filteredArticles.length > 0 ? (
       filteredArticles.map(({ key, title, description, Icon }) => (
