@@ -18,7 +18,6 @@ const Layout = ({ children }) => {
   const [scrollDirection, setScrollDirection] = useState(null)
   const [isInputFocused, setIsInputFocused] = useState(false)
 
-  // Navigation Items
   const navItems = [
     { to: '/', label: 'Home', icon: <LayoutDashboard size={20} /> },
     { to: '/Portfolio', label: 'Portfolio', icon: <FolderKanban size={20} /> },
@@ -27,18 +26,15 @@ const Layout = ({ children }) => {
     { to: '/profile', label: 'Profile', icon: <UserCircle2 size={20} /> },
   ]
 
-  // Loader simulation
   useEffect(() => {
     const timeout = setTimeout(() => setLoading(false), 1000)
     return () => clearTimeout(timeout)
   }, [])
 
-  // Ensure scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
 
-  // Scroll Button logic
   useEffect(() => {
     const checkScroll = () => {
       const scrollY = window.scrollY
@@ -69,7 +65,6 @@ const Layout = ({ children }) => {
     }
   }, [])
 
-  // Input focus tracking
   useEffect(() => {
     const handleFocusIn = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
@@ -100,7 +95,6 @@ const Layout = ({ children }) => {
     }
   }
 
-  // Loader UI
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center bg-white text-purple-700 w-full">
@@ -118,7 +112,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="relative flex flex-col min-h-screen">
-      {/* Top Navbar (Desktop) */}
+      {/* Top Navbar */}
       <div className="hidden md:flex fixed top-0 left-0 right-0 items-center justify-between px-6 py-4 border-b border-gray-200 bg-white shadow-md z-10">
         <h1 className="text-2xl font-bold text-purple-700">Freelancing</h1>
         <div className="flex gap-6">
@@ -126,7 +120,7 @@ const Layout = ({ children }) => {
             <Link
               key={to}
               to={to}
-              className={`flex items-center gap-2 hover:text-purple-600 transition ${
+              className={`flex items-center gap-2 transition-all duration-200 ease-in-out transform hover:scale-105 hover:text-purple-600 ${
                 location.pathname === to
                   ? 'text-purple-600 font-semibold'
                   : 'text-gray-700'
@@ -146,7 +140,7 @@ const Layout = ({ children }) => {
             <Link
               key={to}
               to={to}
-              className={`flex flex-col items-center text-xs hover:text-purple-600 transition ${
+              className={`flex flex-col items-center text-xs transition-all duration-200 ease-in-out transform hover:scale-105 hover:text-purple-600 ${
                 location.pathname === to
                   ? 'text-purple-600 font-semibold'
                   : 'text-gray-700'
@@ -159,18 +153,20 @@ const Layout = ({ children }) => {
         </nav>
       )}
 
-      {/* Floating Scroll Button */}
-      {showButton && scrollDirection && (
-        <button
-          onClick={handleScrollClick}
-          className="fixed bottom-20 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg z-50 hover:bg-purple-700 transition"
-          aria-label={scrollDirection === 'up' ? 'Scroll to top' : 'Scroll to bottom'}
-        >
-          {scrollDirection === 'up' ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-        </button>
-      )}
+      {/* Scroll Button with Animation */}
+      {showButton &&
+        scrollDirection &&
+        !location.pathname.startsWith('/Text') && (
+          <button
+            onClick={handleScrollClick}
+            className="fixed bottom-20 right-4 bg-green-600 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-200 ease-in-out transform hover:scale-110 hover:bg-purple-700"
+            aria-label={scrollDirection === 'up' ? 'Scroll to top' : 'Scroll to bottom'}
+          >
+            {scrollDirection === 'up' ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+          </button>
+        )}
 
-      {/* Main Content Area */}
+      {/* Main Content */}
       <main className="flex-1 px-4 py-4 mt-0 md:mt-[72px] mb-[56px] md:mb-0">
         {children}
       </main>
